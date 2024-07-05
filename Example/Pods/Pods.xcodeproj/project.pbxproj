@@ -1,0 +1,788 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		02DE919B66797868A515AC5ACA7A31C5 /* Pods-BRCBoxInputView_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D0F12FE1AEE3A1ED36DB62AC3D3A509A /* Pods-BRCBoxInputView_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		271F3B8C226B2AFBE4A6E64CFF93E1E4 /* BRCBoxInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CBDD7802F73537B8458C97F7ABE0115 /* BRCBoxInputView.m */; };
+		32081122FBB16527EE8D4B451F3A2FB2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		48FC295DB67D0F23D96CC99720CC67B6 /* Pods-BRCBoxInputView_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A5E1184F9C6218D3E00476769E3BF404 /* Pods-BRCBoxInputView_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6E58C99A915050688C5303BEF2D392E0 /* BRCBoxInputView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7441E60FD9DB6BA67EC68C27A5AC1D8D /* BRCBoxInputView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		70BEE7A2C35A756713CC9D5CACAA431E /* BRCTextInput.m in Sources */ = {isa = PBXBuildFile; fileRef = B34087EA71F66214A1236007F7EA2A04 /* BRCTextInput.m */; };
+		8C310FD3597F1D9EE191EFCFB4B300C7 /* Pods-BRCBoxInputView_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EA18D9F0EDFAAAC2E17F4D72DCA4845 /* Pods-BRCBoxInputView_Tests-dummy.m */; };
+		929D3BB4A9BA28B57A87D253BC7C90C0 /* BRCBoxInputView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 90EEA7EF0C37F10EB64FDF6DB8EBE377 /* BRCBoxInputView-dummy.m */; };
+		9D89D73C19CF3FB8E7159C89596D0C12 /* Pods-BRCBoxInputView_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CBB226A37DCAD3049382C898D843795 /* Pods-BRCBoxInputView_Example-dummy.m */; };
+		B4987EF4104C2FCA8105FED88C80207B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		BB820B1FC477FACC583CDBBE16C30853 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		EDC75933B3B5E76F2CB0B78E9AADB1BB /* BRCBoxInputView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 67386B150F2DC0EBAB37FABE60831A2A /* BRCBoxInputView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EF564727089652479207AFCD40A643C5 /* BRCTextInput.h in Headers */ = {isa = PBXBuildFile; fileRef = 321585D468BC89431D257B1E4F4413D9 /* BRCTextInput.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3D2C0B5A975F7044F7937F3D5BF23042 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C1D4A6C284FDB324E5B91FA2A3209615;
+			remoteInfo = BRCBoxInputView;
+		};
+		796DF56AF152A226AE1734DDB00316A4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9D807BB09BB34EBFFD9CA8A042D7EF88;
+			remoteInfo = "Pods-BRCBoxInputView_Example";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0CBB226A37DCAD3049382C898D843795 /* Pods-BRCBoxInputView_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-BRCBoxInputView_Example-dummy.m"; sourceTree = "<group>"; };
+		0FC5CFF8517D7FB4F68EA2410CB567B4 /* BRCBoxInputView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = BRCBoxInputView.debug.xcconfig; sourceTree = "<group>"; };
+		321585D468BC89431D257B1E4F4413D9 /* BRCTextInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BRCTextInput.h; path = BRCBoxInputView/Classes/BRCTextInput.h; sourceTree = "<group>"; };
+		3894462B87B2EF3355374E31736BC0E7 /* Pods-BRCBoxInputView_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BRCBoxInputView_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		3EA18D9F0EDFAAAC2E17F4D72DCA4845 /* Pods-BRCBoxInputView_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-BRCBoxInputView_Tests-dummy.m"; sourceTree = "<group>"; };
+		3F077C2284AD12186EDEA05D5FFD9A18 /* BRCBoxInputView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = BRCBoxInputView.framework; path = BRCBoxInputView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		45CFCD025D44E06576CA1E963EC0E74F /* BRCBoxInputView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BRCBoxInputView-prefix.pch"; sourceTree = "<group>"; };
+		5C1BD0EDCCBC6E95C31388534389F823 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		67386B150F2DC0EBAB37FABE60831A2A /* BRCBoxInputView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BRCBoxInputView-umbrella.h"; sourceTree = "<group>"; };
+		6CBDD7802F73537B8458C97F7ABE0115 /* BRCBoxInputView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BRCBoxInputView.m; path = BRCBoxInputView/Classes/BRCBoxInputView.m; sourceTree = "<group>"; };
+		6EAD29FD15C37754FD41BC6251E321D9 /* Pods-BRCBoxInputView_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BRCBoxInputView_Example-Info.plist"; sourceTree = "<group>"; };
+		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		7441E60FD9DB6BA67EC68C27A5AC1D8D /* BRCBoxInputView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BRCBoxInputView.h; path = BRCBoxInputView/Classes/BRCBoxInputView.h; sourceTree = "<group>"; };
+		77594170A2A8E998C47DA1B6BB5FB000 /* BRCBoxInputView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = BRCBoxInputView.modulemap; sourceTree = "<group>"; };
+		7DB08A0DB725D11C946480E6F2B7E83F /* Pods-BRCBoxInputView_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BRCBoxInputView_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		825C40135456C61878789251882B3903 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		82E922BA3E6BFEF4B832042CEAAFD41C /* Pods-BRCBoxInputView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BRCBoxInputView_Example.release.xcconfig"; sourceTree = "<group>"; };
+		8A7076333FC5292451C2760F639A037F /* Pods_BRCBoxInputView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_BRCBoxInputView_Example.framework; path = "Pods-BRCBoxInputView_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		90EEA7EF0C37F10EB64FDF6DB8EBE377 /* BRCBoxInputView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "BRCBoxInputView-dummy.m"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A5E1184F9C6218D3E00476769E3BF404 /* Pods-BRCBoxInputView_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-BRCBoxInputView_Example-umbrella.h"; sourceTree = "<group>"; };
+		AD22DE442C7896145F826109E7948118 /* Pods-BRCBoxInputView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BRCBoxInputView_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		B34087EA71F66214A1236007F7EA2A04 /* BRCTextInput.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BRCTextInput.m; path = BRCBoxInputView/Classes/BRCTextInput.m; sourceTree = "<group>"; };
+		B4EBC83229B0CCFD6B84D327577E4BBF /* BRCBoxInputView.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = BRCBoxInputView.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		BB7087840B25389DFAB31CB90E67FA27 /* Pods-BRCBoxInputView_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-BRCBoxInputView_Tests.modulemap"; sourceTree = "<group>"; };
+		C5FF9EA1A68328E70883FEC5CB3C55B9 /* Pods-BRCBoxInputView_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BRCBoxInputView_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		C785FA12DB26D68598CBA61B6B59865E /* Pods-BRCBoxInputView_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BRCBoxInputView_Tests-Info.plist"; sourceTree = "<group>"; };
+		CDD448F35A2DB14B3AFE13BBC9CAB288 /* Pods-BRCBoxInputView_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-BRCBoxInputView_Example.modulemap"; sourceTree = "<group>"; };
+		D0F12FE1AEE3A1ED36DB62AC3D3A509A /* Pods-BRCBoxInputView_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-BRCBoxInputView_Tests-umbrella.h"; sourceTree = "<group>"; };
+		E144A90A12489F50DDFF6266BC5309BC /* Pods-BRCBoxInputView_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BRCBoxInputView_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		E84B9D322B55A8D97530463EC5C52AA4 /* BRCBoxInputView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = BRCBoxInputView.release.xcconfig; sourceTree = "<group>"; };
+		E91CAF26952712490C013212C9F3977B /* Pods-BRCBoxInputView_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-BRCBoxInputView_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		EED3F3A23E4BF4FEE8388AB7611DCBAA /* Pods-BRCBoxInputView_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BRCBoxInputView_Example-frameworks.sh"; sourceTree = "<group>"; };
+		F3CD8BB95081D699997BA7AD1980CCB3 /* BRCBoxInputView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "BRCBoxInputView-Info.plist"; sourceTree = "<group>"; };
+		F50D1084E159373AC8AADF8463ED52EE /* Pods_BRCBoxInputView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_BRCBoxInputView_Tests.framework; path = "Pods-BRCBoxInputView_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBDA0B01CF7349D26C5B59DA8B263F99 /* Pods-BRCBoxInputView_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-BRCBoxInputView_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		27BA495E38AE763D836E613748A2E215 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32081122FBB16527EE8D4B451F3A2FB2 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F484A2C4E99D52CCAB31C136A631C8E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4987EF4104C2FCA8105FED88C80207B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4C4E7B275E802CD81E01C72BBC5323B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB820B1FC477FACC583CDBBE16C30853 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2D7A30D23FA88F1931A584112AD7CD3D /* Pods-BRCBoxInputView_Example */ = {
+			isa = PBXGroup;
+			children = (
+				CDD448F35A2DB14B3AFE13BBC9CAB288 /* Pods-BRCBoxInputView_Example.modulemap */,
+				FBDA0B01CF7349D26C5B59DA8B263F99 /* Pods-BRCBoxInputView_Example-acknowledgements.markdown */,
+				E144A90A12489F50DDFF6266BC5309BC /* Pods-BRCBoxInputView_Example-acknowledgements.plist */,
+				0CBB226A37DCAD3049382C898D843795 /* Pods-BRCBoxInputView_Example-dummy.m */,
+				EED3F3A23E4BF4FEE8388AB7611DCBAA /* Pods-BRCBoxInputView_Example-frameworks.sh */,
+				6EAD29FD15C37754FD41BC6251E321D9 /* Pods-BRCBoxInputView_Example-Info.plist */,
+				A5E1184F9C6218D3E00476769E3BF404 /* Pods-BRCBoxInputView_Example-umbrella.h */,
+				C5FF9EA1A68328E70883FEC5CB3C55B9 /* Pods-BRCBoxInputView_Example.debug.xcconfig */,
+				82E922BA3E6BFEF4B832042CEAAFD41C /* Pods-BRCBoxInputView_Example.release.xcconfig */,
+			);
+			name = "Pods-BRCBoxInputView_Example";
+			path = "Target Support Files/Pods-BRCBoxInputView_Example";
+			sourceTree = "<group>";
+		};
+		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		887D2BF656682604BFD98D5EE66F68B2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3F077C2284AD12186EDEA05D5FFD9A18 /* BRCBoxInputView.framework */,
+				8A7076333FC5292451C2760F639A037F /* Pods_BRCBoxInputView_Example.framework */,
+				F50D1084E159373AC8AADF8463ED52EE /* Pods_BRCBoxInputView_Tests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8C2B7F3E3B37D0B9D4065AF1769DF32B /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				77594170A2A8E998C47DA1B6BB5FB000 /* BRCBoxInputView.modulemap */,
+				90EEA7EF0C37F10EB64FDF6DB8EBE377 /* BRCBoxInputView-dummy.m */,
+				F3CD8BB95081D699997BA7AD1980CCB3 /* BRCBoxInputView-Info.plist */,
+				45CFCD025D44E06576CA1E963EC0E74F /* BRCBoxInputView-prefix.pch */,
+				67386B150F2DC0EBAB37FABE60831A2A /* BRCBoxInputView-umbrella.h */,
+				0FC5CFF8517D7FB4F68EA2410CB567B4 /* BRCBoxInputView.debug.xcconfig */,
+				E84B9D322B55A8D97530463EC5C52AA4 /* BRCBoxInputView.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/BRCBoxInputView";
+			sourceTree = "<group>";
+		};
+		A4493C250575C7FFCDCEAEC7BEB74697 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				B4EBC83229B0CCFD6B84D327577E4BBF /* BRCBoxInputView.podspec */,
+				825C40135456C61878789251882B3903 /* LICENSE */,
+				5C1BD0EDCCBC6E95C31388534389F823 /* README.md */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		B1D1FBBFA2F561A91B930CE59481515C /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FCAF3DC63900BFDB774D907410E9F4EC /* BRCBoxInputView */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		BA17ED1DE3432FFD679ADBAB5F4338DF /* Pods-BRCBoxInputView_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				BB7087840B25389DFAB31CB90E67FA27 /* Pods-BRCBoxInputView_Tests.modulemap */,
+				E91CAF26952712490C013212C9F3977B /* Pods-BRCBoxInputView_Tests-acknowledgements.markdown */,
+				7DB08A0DB725D11C946480E6F2B7E83F /* Pods-BRCBoxInputView_Tests-acknowledgements.plist */,
+				3EA18D9F0EDFAAAC2E17F4D72DCA4845 /* Pods-BRCBoxInputView_Tests-dummy.m */,
+				C785FA12DB26D68598CBA61B6B59865E /* Pods-BRCBoxInputView_Tests-Info.plist */,
+				D0F12FE1AEE3A1ED36DB62AC3D3A509A /* Pods-BRCBoxInputView_Tests-umbrella.h */,
+				3894462B87B2EF3355374E31736BC0E7 /* Pods-BRCBoxInputView_Tests.debug.xcconfig */,
+				AD22DE442C7896145F826109E7948118 /* Pods-BRCBoxInputView_Tests.release.xcconfig */,
+			);
+			name = "Pods-BRCBoxInputView_Tests";
+			path = "Target Support Files/Pods-BRCBoxInputView_Tests";
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				B1D1FBBFA2F561A91B930CE59481515C /* Development Pods */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				887D2BF656682604BFD98D5EE66F68B2 /* Products */,
+				E5635D3E76BC2DD8D08956799C7B3EF2 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				578452D2E740E91742655AC8F1636D1F /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E5635D3E76BC2DD8D08956799C7B3EF2 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				2D7A30D23FA88F1931A584112AD7CD3D /* Pods-BRCBoxInputView_Example */,
+				BA17ED1DE3432FFD679ADBAB5F4338DF /* Pods-BRCBoxInputView_Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		FCAF3DC63900BFDB774D907410E9F4EC /* BRCBoxInputView */ = {
+			isa = PBXGroup;
+			children = (
+				7441E60FD9DB6BA67EC68C27A5AC1D8D /* BRCBoxInputView.h */,
+				6CBDD7802F73537B8458C97F7ABE0115 /* BRCBoxInputView.m */,
+				321585D468BC89431D257B1E4F4413D9 /* BRCTextInput.h */,
+				B34087EA71F66214A1236007F7EA2A04 /* BRCTextInput.m */,
+				A4493C250575C7FFCDCEAEC7BEB74697 /* Pod */,
+				8C2B7F3E3B37D0B9D4065AF1769DF32B /* Support Files */,
+			);
+			name = BRCBoxInputView;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		11DAFE01D12086B49F992B9D628F19DB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02DE919B66797868A515AC5ACA7A31C5 /* Pods-BRCBoxInputView_Tests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4BA6ACD99531583CF7895DF713EB2F90 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48FC295DB67D0F23D96CC99720CC67B6 /* Pods-BRCBoxInputView_Example-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50A8C84C824E5F6A3761653936147F29 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E58C99A915050688C5303BEF2D392E0 /* BRCBoxInputView.h in Headers */,
+				EDC75933B3B5E76F2CB0B78E9AADB1BB /* BRCBoxInputView-umbrella.h in Headers */,
+				EF564727089652479207AFCD40A643C5 /* BRCTextInput.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		9D807BB09BB34EBFFD9CA8A042D7EF88 /* Pods-BRCBoxInputView_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4458D55D96E63162E7B1DF745D4022B7 /* Build configuration list for PBXNativeTarget "Pods-BRCBoxInputView_Example" */;
+			buildPhases = (
+				4BA6ACD99531583CF7895DF713EB2F90 /* Headers */,
+				F4EE6BD76D0EAF7CFBE7968DA744A8F1 /* Sources */,
+				E4C4E7B275E802CD81E01C72BBC5323B /* Frameworks */,
+				51A9FBCAF976E3207F312567566A5843 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6B34A2F1C125C8272BBAE3BFB6ECA475 /* PBXTargetDependency */,
+			);
+			name = "Pods-BRCBoxInputView_Example";
+			productName = "Pods-BRCBoxInputView_Example";
+			productReference = 8A7076333FC5292451C2760F639A037F /* Pods_BRCBoxInputView_Example.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		C1D4A6C284FDB324E5B91FA2A3209615 /* BRCBoxInputView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8965D7B33882506EC7937F3B8493F1BA /* Build configuration list for PBXNativeTarget "BRCBoxInputView" */;
+			buildPhases = (
+				50A8C84C824E5F6A3761653936147F29 /* Headers */,
+				E6B7AF07345E64AA1AD047D57D91D89E /* Sources */,
+				4F484A2C4E99D52CCAB31C136A631C8E /* Frameworks */,
+				40C4AEDAC8DF993242C70164B31D7922 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BRCBoxInputView;
+			productName = BRCBoxInputView;
+			productReference = 3F077C2284AD12186EDEA05D5FFD9A18 /* BRCBoxInputView.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D521A32E673F6DEB41E0547191FC2B8B /* Pods-BRCBoxInputView_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD2795253FF641A85A51CF4A2A4D8161 /* Build configuration list for PBXNativeTarget "Pods-BRCBoxInputView_Tests" */;
+			buildPhases = (
+				11DAFE01D12086B49F992B9D628F19DB /* Headers */,
+				66DA93DF89DA72C506A02F1D56A6E862 /* Sources */,
+				27BA495E38AE763D836E613748A2E215 /* Frameworks */,
+				E520C3F2C5A08C5453825B6939E6100F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				31CDEF87BB686EAE924147994A958AC5 /* PBXTargetDependency */,
+			);
+			name = "Pods-BRCBoxInputView_Tests";
+			productName = "Pods-BRCBoxInputView_Tests";
+			productReference = F50D1084E159373AC8AADF8463ED52EE /* Pods_BRCBoxInputView_Tests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 887D2BF656682604BFD98D5EE66F68B2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C1D4A6C284FDB324E5B91FA2A3209615 /* BRCBoxInputView */,
+				9D807BB09BB34EBFFD9CA8A042D7EF88 /* Pods-BRCBoxInputView_Example */,
+				D521A32E673F6DEB41E0547191FC2B8B /* Pods-BRCBoxInputView_Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		40C4AEDAC8DF993242C70164B31D7922 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		51A9FBCAF976E3207F312567566A5843 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E520C3F2C5A08C5453825B6939E6100F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		66DA93DF89DA72C506A02F1D56A6E862 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C310FD3597F1D9EE191EFCFB4B300C7 /* Pods-BRCBoxInputView_Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E6B7AF07345E64AA1AD047D57D91D89E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				271F3B8C226B2AFBE4A6E64CFF93E1E4 /* BRCBoxInputView.m in Sources */,
+				929D3BB4A9BA28B57A87D253BC7C90C0 /* BRCBoxInputView-dummy.m in Sources */,
+				70BEE7A2C35A756713CC9D5CACAA431E /* BRCTextInput.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4EE6BD76D0EAF7CFBE7968DA744A8F1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D89D73C19CF3FB8E7159C89596D0C12 /* Pods-BRCBoxInputView_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		31CDEF87BB686EAE924147994A958AC5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-BRCBoxInputView_Example";
+			target = 9D807BB09BB34EBFFD9CA8A042D7EF88 /* Pods-BRCBoxInputView_Example */;
+			targetProxy = 796DF56AF152A226AE1734DDB00316A4 /* PBXContainerItemProxy */;
+		};
+		6B34A2F1C125C8272BBAE3BFB6ECA475 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = BRCBoxInputView;
+			target = C1D4A6C284FDB324E5B91FA2A3209615 /* BRCBoxInputView */;
+			targetProxy = 3D2C0B5A975F7044F7937F3D5BF23042 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0D344E5D9B67F52454B777FC57FFB481 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 82E922BA3E6BFEF4B832042CEAAFD41C /* Pods-BRCBoxInputView_Example.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-BRCBoxInputView_Example/Pods-BRCBoxInputView_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-BRCBoxInputView_Example/Pods-BRCBoxInputView_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		47F752EEA9B24006761D00FD30425794 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C5FF9EA1A68328E70883FEC5CB3C55B9 /* Pods-BRCBoxInputView_Example.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-BRCBoxInputView_Example/Pods-BRCBoxInputView_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-BRCBoxInputView_Example/Pods-BRCBoxInputView_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5CC740E03DEFCECD82FC45A6E4C30421 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3894462B87B2EF3355374E31736BC0E7 /* Pods-BRCBoxInputView_Tests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-BRCBoxInputView_Tests/Pods-BRCBoxInputView_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-BRCBoxInputView_Tests/Pods-BRCBoxInputView_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7EE7A78859F657F6BEFC651185B43192 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		90BE093EFBC1977FB1069CF04712428C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD22DE442C7896145F826109E7948118 /* Pods-BRCBoxInputView_Tests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-BRCBoxInputView_Tests/Pods-BRCBoxInputView_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-BRCBoxInputView_Tests/Pods-BRCBoxInputView_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C4619364C9D53E3CF7AFEBD67F93B302 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E84B9D322B55A8D97530463EC5C52AA4 /* BRCBoxInputView.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/BRCBoxInputView/BRCBoxInputView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/BRCBoxInputView/BRCBoxInputView-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/BRCBoxInputView/BRCBoxInputView.modulemap";
+				PRODUCT_MODULE_NAME = BRCBoxInputView;
+				PRODUCT_NAME = BRCBoxInputView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D299434AB35E7FD6F7921C8EF24742FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		D4027CC3877705C434B531AFD314B145 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0FC5CFF8517D7FB4F68EA2410CB567B4 /* BRCBoxInputView.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/BRCBoxInputView/BRCBoxInputView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/BRCBoxInputView/BRCBoxInputView-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/BRCBoxInputView/BRCBoxInputView.modulemap";
+				PRODUCT_MODULE_NAME = BRCBoxInputView;
+				PRODUCT_NAME = BRCBoxInputView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4458D55D96E63162E7B1DF745D4022B7 /* Build configuration list for PBXNativeTarget "Pods-BRCBoxInputView_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				47F752EEA9B24006761D00FD30425794 /* Debug */,
+				0D344E5D9B67F52454B777FC57FFB481 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D299434AB35E7FD6F7921C8EF24742FF /* Debug */,
+				7EE7A78859F657F6BEFC651185B43192 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8965D7B33882506EC7937F3B8493F1BA /* Build configuration list for PBXNativeTarget "BRCBoxInputView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4027CC3877705C434B531AFD314B145 /* Debug */,
+				C4619364C9D53E3CF7AFEBD67F93B302 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FD2795253FF641A85A51CF4A2A4D8161 /* Build configuration list for PBXNativeTarget "Pods-BRCBoxInputView_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CC740E03DEFCECD82FC45A6E4C30421 /* Debug */,
+				90BE093EFBC1977FB1069CF04712428C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

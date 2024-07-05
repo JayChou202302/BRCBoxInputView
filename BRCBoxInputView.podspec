@@ -8,35 +8,15 @@
 
 Pod::Spec.new do |s|
   s.name             = 'BRCBoxInputView'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of BRCBoxInputView.'
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
-
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
-
-  s.homepage         = 'https://github.com/zhixiongsun/BRCBoxInputView'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.version          = '1.0.0'
+  s.summary          = 'BRCBoxInputView is a customizable input view that supports various text input customizations and conforms to the UITextInput protocol.'
+  
+  s.description      = "BRCBoxInputView is a customizable input view that conforms to the UITextInput protocol.It offers various text input customizations, including keyboard settings, caret styles,box alignment, and input length constraints. The view supports menu actions like copy,paste, cut, and delete, and includes features for handling custom input events and first responder status."
+  
+  s.homepage         = 'https://github.com/JayChou202302/BRCBoxInputView'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'zhixiongsun' => 'zhixiongsun@trip.com' }
-  s.source           = { :git => 'https://github.com/zhixiongsun/BRCBoxInputView.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
-
-  s.ios.deployment_target = '10.0'
-
+  s.source           = { :git => 'https://github.com/JayChou202302/BRCBoxInputView.git', :tag => s.version.to_s }
+  s.ios.deployment_target = '13.0'
   s.source_files = 'BRCBoxInputView/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'BRCBoxInputView' => ['BRCBoxInputView/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end

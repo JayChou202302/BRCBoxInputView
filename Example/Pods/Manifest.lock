@@ -1,0 +1,16 @@
+PODS:
+  - BRCBoxInputView (1.0.0)
+
+DEPENDENCIES:
+  - BRCBoxInputView (from `../`)
+
+EXTERNAL SOURCES:
+  BRCBoxInputView:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  BRCBoxInputView: 3170d8208557e3dc2108b695b5764cb0835c79da
+
+PODFILE CHECKSUM: 412d79d0219a542caddd1c292900abcb8487eef1
+
+COCOAPODS: 1.10.1
