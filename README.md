@@ -16,17 +16,17 @@ A versatile, highly customizable input view for iOS. It supports various text in
 <table>
     <thead>
         <tr>
-            <th>PopUp</th>
-            <th>DropDown</th>
+            <th>BaseInput</th>
+            <th>CustomInput</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td>
-                <img src="https://jaychou202302.github.io/media/BRCDropDown/1.GIF"/>
+                <img src="https://jaychou202302.github.io/media/BRCBoxInputView/input1.GIF"/>
             </td>
             <td>
-                <img src="https://jaychou202302.github.io/media/BRCDropDown/2.GIF"/>
+                <img src="https://jaychou202302.github.io/media/BRCBoxInputView/input2.GIF"/>
             </td>
         </tr>
     </tbody>
@@ -109,29 +109,51 @@ A versatile, highly customizable input view for iOS. It supports various text in
 
 ```objective-c
 #import "BRCBoxInputView.h"
-
-// Create an input view with a specified length
-BRCBoxInputView *inputView = [[BRCBoxInputView alloc] initWithInputLength:6];
-
-// Customize appearance
-inputView.autocapitalizationType = UITextAutocapitalizationTypeWords;
-inputView.autocorrectionType = UITextAutocorrectionTypeNo;
-inputView.keyboardType = UIKeyboardTypeNumberPad;
-inputView.placeHolder = @"Enter Code";
-
-// Set caret properties
-inputView.showCaret = YES;
-inputView.caretWidth = 2.0;
-inputView.caretMaxOpacity = 1.0;
-
-// Set box style properties
-inputView.boxSpace = 8.0;
-inputView.selectTransitionDuration = 0.25;
-inputView.alignment = BRCBoxAlignmentCenter;
-
-// Show the input view
-[inputView toggleFirstResponder];
+BRCBoxInputView *view = [[BRCBoxInputView alloc] initWithInputLength:8];
+view.autoDismissKeyBoardWhenFinishInput = YES;
+view.autoFillBoxContainer = NO;
+[self.view addSubview:view];
 ```
+
+### Advanced Example
+
+```objective-c
+BRCBoxInputView *view4_2 = [[BRCBoxInputView alloc] initWithInputLength:5];
+view4_2.alignment =  BRCBoxAlignmentRight;
+view4_2.showCaret = NO;
+view4_2.autoDismissKeyBoardWhenFinishInput = YES;
+view4_2.autoFillBoxContainer = NO;
+BRCBoxStyle *style4_2 = [BRCBoxStyle defaultStyle];
+style4_2.boxSize = CGSizeMake(60, 60);
+style4_2.customView = ^UIView * _Nonnull(BRCBoxView * _Nonnull boxView) {
+    LOTAnimationView *animationView = [LOTAnimationView animationNamed:@"celebrateCeneter"];
+    animationView.tag = 100;
+    animationView.alpha = 0;
+    animationView.contentMode = UIViewContentModeScaleAspectFit;
+    animationView.frame = boxView.bounds;
+    animationView.loopAnimation = NO;
+    return animationView;
+};
+[view4_2 setBoxStyle:style4_2];
+
+BRCBoxStyle *selectStyle4_2 = [BRCBoxStyle defaultSelectStyle];
+selectStyle4_2.customView = ^UIView * _Nonnull(BRCBoxView * _Nonnull boxView) {
+    LOTAnimationView *animationView = [LOTAnimationView animationNamed:@"gift"];
+    animationView.tag = 208;
+    animationView.alpha = 0;
+    animationView.contentMode = UIViewContentModeScaleAspectFit;
+    animationView.frame = boxView.bounds;
+    animationView.loopAnimation = YES;
+    animationView.autoReverseAnimation = YES;
+    return animationView;
+};
+selectStyle4_2.boxSize = CGSizeMake(60, 60);
+view4_2.inputDelegate = self;
+[view4_2 setSelectBoxStyle:selectStyle4_2];
+[_inputArray addObject:view4_2];
+[self addTestView:view4_2 withTitle:@"5.带回调事件" height:80 isFitWidth:NO];
+```
+
 
 ## Installation
 

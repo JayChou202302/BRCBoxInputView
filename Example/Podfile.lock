@@ -1,16 +1,39 @@
 PODS:
   - BRCBoxInputView (1.0.0)
+  - Masonry (1.1.0)
+  - MBProgressHUD (1.2.0)
+  - SDWebImage (5.19.2):
+    - SDWebImage/Core (= 5.19.2)
+  - SDWebImage/Core (5.19.2)
+  - YYKit (1.0.9):
+    - YYKit/no-arc (= 1.0.9)
+  - YYKit/no-arc (1.0.9)
 
 DEPENDENCIES:
   - BRCBoxInputView (from `../`)
+  - Masonry
+  - MBProgressHUD
+  - SDWebImage
+  - YYKit
+
+SPEC REPOS:
+  trunk:
+    - Masonry
+    - MBProgressHUD
+    - SDWebImage
+    - YYKit
 
 EXTERNAL SOURCES:
   BRCBoxInputView:
     :path: "../"
 
 SPEC CHECKSUMS:
-  BRCBoxInputView: 3170d8208557e3dc2108b695b5764cb0835c79da
+  BRCBoxInputView: ff9caa5b6551e2973709e8842dcd98d25b9b8654
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
+  SDWebImage: dfe95b2466a9823cf9f0c6d01217c06550d7b29a
+  YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 412d79d0219a542caddd1c292900abcb8487eef1
+PODFILE CHECKSUM: 4a59de10699e7dfe9b60c02e146c618997bc3d5d
 
 COCOAPODS: 1.10.1

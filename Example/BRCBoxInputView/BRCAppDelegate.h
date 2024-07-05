@@ -1,8 +1,8 @@
 //
 //  BRCAppDelegate.h
-//  BRCBoxInputView
+//  BRCBoxInput
 //
-//  Created by zhixiongsun on 07/05/2024.
+//  Created by zhixiongsun on 05/01/2024.
 //  Copyright (c) 2024 zhixiongsun. All rights reserved.
 //
 
