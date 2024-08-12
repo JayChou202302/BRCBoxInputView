@@ -1,0 +1,5 @@
+${PODS_ROOT}/Target Support Files/Pods-BRCBoxInputView_OC/Pods-BRCBoxInputView_OC-frameworks.sh
+${BUILT_PRODUCTS_DIR}/BRCBoxInputView/BRCBoxInputView.framework
+${BUILT_PRODUCTS_DIR}/BRCFastTest/BRCFastTest.framework
+${BUILT_PRODUCTS_DIR}/BRCPopUp/BRCPopUp.framework
+${BUILT_PRODUCTS_DIR}/FLEX/FLEX.framework

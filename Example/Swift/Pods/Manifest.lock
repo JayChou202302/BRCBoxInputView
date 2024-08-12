@@ -1,0 +1,31 @@
+PODS:
+  - BRCBoxInputView (0.1.0)
+  - BRCFastTest (0.1.0):
+    - FLEX
+  - BRCPopUp (1.0.1)
+  - FLEX (5.22.10)
+
+DEPENDENCIES:
+  - BRCBoxInputView (from `../../../BRCBoxInputView`)
+  - BRCFastTest
+  - BRCPopUp
+
+SPEC REPOS:
+  trunk:
+    - BRCFastTest
+    - BRCPopUp
+    - FLEX
+
+EXTERNAL SOURCES:
+  BRCBoxInputView:
+    :path: "../../../BRCBoxInputView"
+
+SPEC CHECKSUMS:
+  BRCBoxInputView: 7d1506f1b018176e7eaafb605e356f4c7ab1b6c5
+  BRCFastTest: d33a6b9ec74b172c990546516968d64005e935de
+  BRCPopUp: 8a10214126e7e270638e6aa05ee9ff15f6f0da59
+  FLEX: f21ee4f498eed3f8a1eded66b21939fd3b7a22ce
+
+PODFILE CHECKSUM: f06d53311a9f9abe65a0bb4a78a0c91d9e4de718
+
+COCOAPODS: 1.15.2

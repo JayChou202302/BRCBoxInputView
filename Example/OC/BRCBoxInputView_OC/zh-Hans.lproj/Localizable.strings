@@ -1,0 +1,33 @@
+/* 
+  Localizable.strings
+  BRCBoxInputView_OC
+
+  Created by sunzhixiong on 2024/8/7.
+  
+*/
+
+"key.main.tab.test.title" = "测试";
+"key.main.tab.test.example" = "样例";
+"key.component.description" = "一个高效易用的验证码输入组件";
+"key.component.functions.01" = "基于 UIKeyInput 协议";
+"key.component.functions.02" = "支持占位符、阴影等多种样式";
+"key.component.functions.03" = "支持自定义加密输入";
+"key.component.functions.04" = "支持复制、粘贴、删除、拷贝的功能";
+"key.paste.text.success" = "粘贴成功";
+"key.copy.text.success" = "复制成功";
+"key.delete.text.success" = "删除成功";
+"key.cut.text.success" = "剪切成功";
+"key.component.test.example" = "测试示例";
+"key.component.test.caret.height" = "光标的高度";
+"key.component.test.caret.width" = "光标的宽度";
+"key.component.test.caret.maxopacity" = "光标的最大透明度";
+"key.component.test.caret.minopacity" = "光标的最小透明度";
+"key.component.test.caret.blinkduration" = "光标的动画时间";
+"key.component.test.box.height" = "输入框的高度";
+"key.component.test.box.width" = "输入框的宽度";
+"key.component.test.box.space" = "输入框之间的间距";
+"key.component.test.box.inputlength" = "输入框的数量";
+"key.component.test.style.02" = "3.自定义样式2";
+"key.component.test.style.01" = "2.自定义样式1";
+"key.component.test.style.00" = "1.带占位符";
+

@@ -1,9 +1,6 @@
-<p align='center'>
-    <img src="https://jaychou202302.github.io/media/BRCBoxInputView/logo.gif"/>
-</p>
-
-
 # BRCBoxInputView
+
+<a href="./REAMDE_CH.md">中文文档</a>
 
 ![](https://img.shields.io/github/v/tag/jaychou202302/BRCBoxInputView?label=Version)
 [![Cocoapods Compatible](https://img.shields.io/badge/cocoapods-Compatible-brightgreen.svg)](https://cocoapods.org/pods/BRCBoxInputView)
@@ -23,10 +20,10 @@ A versatile, highly customizable input view for iOS. It supports various text in
     <tbody>
         <tr>
             <td>
-                <img src="https://jaychou202302.github.io/media/BRCBoxInputView/input1.GIF"/>
+                <img src="https://jaychou202302.github.io/media/BRCBoxInputView/main.PNG"/>
             </td>
             <td>
-                <img src="https://jaychou202302.github.io/media/BRCBoxInputView/input2.GIF"/>
+                <img src="https://jaychou202302.github.io/media/BRCBoxInputView/test.PNG"/>
             </td>
         </tr>
     </tbody>
@@ -34,125 +31,43 @@ A versatile, highly customizable input view for iOS. It supports various text in
 
 ## Features
 
-- **UITextInput Compliance**  
-  Supports various text input customizations such as autocapitalization, autocorrection, spell checking, and more.
+- **Based on UITextInput protocol**
+  Supports various text input customizations, the code is efficient, concise and non-invasive, and there is no need to create a UITextField / UITextView view to complete the input.
 
-- **Caret Customization**  
-  Control the appearance and behavior of the caret, including width, height, blink duration, and opacity.
+- **Cursor customization**
+  Control the appearance and behavior of the cursor, including width, height, blink duration, and opacity.
 
-- **Box Style Customization**  
-  Customize the appearance and alignment of input boxes, including space between boxes, select transition duration, and auto-fill options.
+- **Box style customization**
+  Customize the appearance and alignment of input boxes, including the space between boxes, selection transition duration, and autofill options. It also supports inheritance to meet highly customized needs.
 
-- **Menu Actions**  
-  Support for copy, paste, cut, and delete actions within the input view.
+- **Menu operation**
+  Supports copy, paste, cut and delete operations in input views.
 
-- **Input Handling**  
-  Manage the input length, current input index, and handle custom input events.
-
-- **First Responder Control**  
-  Toggle the first responder status programmatically.
-
-## Usage
-
-### Required Parameters
-1. `inputLength` - The length of the input.
-
-### Available Customizations - Optional Parameters
-
-#### UITextInput Traits
-1. `autocapitalizationType` - Controls whether text should be auto-capitalized.
-2. `autocorrectionType` - Controls whether text should be auto-corrected.
-3. `spellCheckingType` - Controls whether text should be spell-checked.
-4. `smartQuotesType` - Controls whether smart quotes should be used.
-5. `smartDashesType` - Controls whether smart dashes should be used.
-6. `smartInsertDeleteType` - Controls whether smart insert/delete should be used.
-7. `keyboardType` - The type of keyboard to display.
-8. `keyboardAppearance` - The appearance style of the keyboard.
-9. `returnKeyType` - The return key type for the keyboard.
-10. `enablesReturnKeyAutomatically` - Controls whether the return key is automatically enabled.
-11. `textContentType` - The type of content the text input represents.
-12. `passwordRules` - The password rules for the text input.
-
-#### Menu Customization
-1. `copyable` - Controls whether text can be copied.
-2. `pasteable` - Controls whether text can be pasted.
-3. `cutable` - Controls whether text can be cut.
-4. `deleteable` - Controls whether text can be deleted.
-5. `setMenuable:` - Sets whether the text menu is enabled.
-
-#### Caret Customization
-1. `showCaret` - Controls whether the caret is shown.
-2. `caretWidth` - The width of the caret.
-3. `caretHeight` - The height of the caret.
-4. `caretMaxOpacity` - The maximum opacity of the caret.
-5. `caretMinOpacity` - The minimum opacity of the caret.
-6. `blinkDuration` - The duration of the caret blink animation.
-
-#### Box Style Customization
-1. `boxSpace` - The space between boxes.
-2. `selectTransitionDuration` - The duration of the select transition animation.
-3. `alignment` - The alignment of the boxes.
-4. `autoDismissKeyBoardWhenFinishInput` - Controls whether the keyboard is automatically dismissed when input is finished.
-5. `autoFillBoxContainer` - Controls whether the box container is automatically filled.
-6. `isRTL` - Controls whether the text input is in right-to-left mode.
-7. `placeHolder` - The placeholder text for the input.
-8. `inputText` - The current input text.
-9. `currentInputIndex` - The current input index (read-only).
-10. `inputMaxLength` - The maximum length of the input (read-only).
-11. `onClickInputViewBlock` - A block that is called when the input view is clicked.
-
-### Initialization
-1. `initWithInputLength:` - Initializes the input view with a specified length.
-2. `boxInputWithLength:` - Creates a new input view with a specified length.
-
-### Basic Example
+## Fast Usage
 
 ```objective-c
 #import "BRCBoxInputView.h"
 BRCBoxInputView *view = [[BRCBoxInputView alloc] initWithInputLength:8];
-view.autoDismissKeyBoardWhenFinishInput = YES;
-view.autoFillBoxContainer = NO;
 [self.view addSubview:view];
 ```
 
-### Advanced Example
-
-```objective-c
-BRCBoxInputView *view4_2 = [[BRCBoxInputView alloc] initWithInputLength:5];
-view4_2.alignment =  BRCBoxAlignmentRight;
-view4_2.showCaret = NO;
-view4_2.autoDismissKeyBoardWhenFinishInput = YES;
-view4_2.autoFillBoxContainer = NO;
-BRCBoxStyle *style4_2 = [BRCBoxStyle defaultStyle];
-style4_2.boxSize = CGSizeMake(60, 60);
-style4_2.customView = ^UIView * _Nonnull(BRCBoxView * _Nonnull boxView) {
-    LOTAnimationView *animationView = [LOTAnimationView animationNamed:@"celebrateCeneter"];
-    animationView.tag = 100;
-    animationView.alpha = 0;
-    animationView.contentMode = UIViewContentModeScaleAspectFit;
-    animationView.frame = boxView.bounds;
-    animationView.loopAnimation = NO;
-    return animationView;
-};
-[view4_2 setBoxStyle:style4_2];
-
-BRCBoxStyle *selectStyle4_2 = [BRCBoxStyle defaultSelectStyle];
-selectStyle4_2.customView = ^UIView * _Nonnull(BRCBoxView * _Nonnull boxView) {
-    LOTAnimationView *animationView = [LOTAnimationView animationNamed:@"gift"];
-    animationView.tag = 208;
-    animationView.alpha = 0;
-    animationView.contentMode = UIViewContentModeScaleAspectFit;
-    animationView.frame = boxView.bounds;
-    animationView.loopAnimation = YES;
-    animationView.autoReverseAnimation = YES;
-    return animationView;
-};
-selectStyle4_2.boxSize = CGSizeMake(60, 60);
-view4_2.inputDelegate = self;
-[view4_2 setSelectBoxStyle:selectStyle4_2];
-[_inputArray addObject:view4_2];
-[self addTestView:view4_2 withTitle:@"5.带回调事件" height:80 isFitWidth:NO];
+```swift
+import BRCBoxInputView
+let boxInputView = BRCBoxInputView(inputLength: 10);
+addSubview(boxInputView);
 ```
+
+## Custom Usage
+
+If you need to customize your input box view, you have the following ways to achieve your purpose
+
+1. Complete the style definition by setting `BoxStyle` / `SelectBoxStyle`
+
+2. By setting `delegate` and implementing the `-boxStyleWithIndex:withBoxView:inInputView:` method, you can dynamically return Style and set your BoxStyle more flexibly.
+
+3. If the above basic properties cannot meet your requirements, you can rewrite a BoxView to meet your highly customized requirements for the view. You need to create a view that inherits `UICollectionCell`, and then use this newly created ` Class is assigned to the BoxClass property of InputView, or you can directly inherit from `BRCBoxView` which has encapsulated many basic functions for us, but you need to note that in some cases, you need to modify the `BRCBoxViewProtocol` in Rewrite methods and properties to ensure that your styles will not be overwritten by the parent class;
+
+More information can be obtained from the examples in the Demo
 
 
 ## Installation
@@ -161,7 +76,7 @@ BRCBoxInputView is available through [CocoaPods](https://cocoapods.org). To inst
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'BRCBoxInputView', '~> 1.0'
+pod 'BRCBoxInputView'
 ```
 
 # Requirements

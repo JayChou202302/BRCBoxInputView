@@ -1,0 +1,31 @@
+/* 
+  Localizable.strings
+  BRCBoxInputView_OC
+
+  Created by sunzhixiong on 2024/8/7.
+  
+*/
+"key.main.tab.test.title" = "Test";
+"key.main.tab.test.example" = "Example";
+"key.component.description" = "An efficient and easy-to-use verification code input component";
+"key.component.functions.01" = "Based on UIKeyInput protocol";
+"key.component.functions.02" = "Supports multiple styles such as placeholders and shadows";
+"key.component.functions.03" = "Support custom encrypted input";
+"key.component.functions.04" = "Supports copy, paste, delete, and copy functions";
+"key.paste.text.success" = "Paste successful";
+"key.copy.text.success" = "Copy successfully";
+"key.delete.text.success" = "Delete successfully";
+"key.cut.text.success" = "Cut successfully";
+"key.component.test.example" = "Test example";
+"key.component.test.caret.height" = "Cursor height";
+"key.component.test.caret.width" = "Cursor width";
+"key.component.test.caret.maxopacity" = "Maximum transparency of the cursor";
+"key.component.test.caret.minopacity" = "Minimum transparency of the cursor";
+"key.component.test.caret.blinkduration" = "Cursor animation time";
+"key.component.test.box.height" = "Height of the input box";
+"key.component.test.box.width" = "Width of the input box";
+"key.component.test.box.space" = "Spacing between input boxes";
+"key.component.test.box.inputlength" = "Number of input boxes";
+"key.component.test.style.02" = "3. Custom style 2";
+"key.component.test.style.01" = "2. Custom style 1";
+"key.component.test.style.00" = "1.With placeholder";
