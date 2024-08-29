@@ -31,8 +31,7 @@
 
 ## 功能
 
-- **多平台/多框架支持**
-  支持 `UIKit、SwiftUI`框架以及`OC、Swift`两种语言
+- **多平台/多框架支持**<br>支持 `UIKit、SwiftUI`框架以及`OC、Swift`两种语言
 
 - **基于 UITextInput 协议**  
   支持各种文本输入自定义，代码高效简洁，无侵入性，同时不用创建`UITextField / UITextView` 视图来完成输入。
@@ -98,6 +97,8 @@ BRCBoxInput<BRCBox>(text: $boxInputText,isFocus: $isBoxInputFocus)
 **A:** <p>
 `caretWidth`、`caretHeight`、`caretMaxOpacity`、`caretMinOpacity`、`blinkDuration`、`caretTintColor`、`showCaret` 通过这些参数，你可以自定义光标的宽度和高度、颜色以及光标动画的时长、最大/最小透明度 <p>
 
+<br>
+
 **Q:** 我想要输入框可以进行复制、粘贴、剪切、删除等操作，我应该如何设置<p>
 **A:** <p>
 `menuActions` 通过设置该参数，你可以决定输入框对哪些剪切板方法的响应，目前支持响应输入框的 复制、粘贴、剪切、删除 四个方法，且内部均已适配完善<p>
@@ -124,10 +125,10 @@ BRCBoxInput<BRCBox>(text: $boxInputText,isFocus: $isBoxInputFocus)
 
 **Q:** 我想要自定义输入框的内容，我应该如何设置参数？<p>
 **A:** <p>
-1）**基础参数:** `placeHolder`, `text` 你可以通过这些参数来设置输入框的 文本/占位符
-2）**高级参数:**
-`alignment` 输入框的对齐样式，当输入框的长度比较短的时候，给定的容器宽度比较长时，这个时候你或许需要设置其对齐方式，例如左对齐/居中对齐/右对齐
-`inputPattern` 输入框的正则输入过滤，你可以通过设置该属性来保证输入框输入的内容是你想要的文本
+1）**基础参数:** `placeHolder`, `text` 你可以通过这些参数来设置输入框的 文本/占位符 <p>
+2）**高级参数:** <p>
+`alignment` 输入框的对齐样式，当输入框的长度比较短的时候，给定的容器宽度比较长时，这个时候你或许需要设置其对齐方式，例如左对齐/居中对齐/右对齐 <p>
+`inputPattern` 输入框的正则输入过滤，你可以通过设置该属性来保证输入框输入的内容是你想要的文本<p>
 
 <br>
 
@@ -176,7 +177,7 @@ BRCBoxInput<CustomBoxView>(text: $text, isFocus: $isFocus)
 
 **2.高级使用**
 
-由于 `SwiftUI` 中不支持直接继承于 `UIKit` 的某个类型，为了适配自定义输入框视图的需求，我们会其进行了 `UIView` 和 `View`的桥接处理，调用方无需关注其转换过程，只需要遵循新的协议，对协议方法进行实现即可实现输入框的样式自定义。
+由于 `SwiftUI` 中不支持直接继承于 `UIKit` 的某个类型，为了适配自定义输入框视图的需求，我们对其进行了 `UIView` 和 `View`的桥接处理，调用方无需关注其转换过程，只需要遵循新的协议 `BRCBoxProtocol`，对协议方法进行实现即可实现输入框的样式自定义。
 
 ## 安装
 
