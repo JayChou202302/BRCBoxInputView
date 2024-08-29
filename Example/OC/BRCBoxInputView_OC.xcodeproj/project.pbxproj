@@ -93,12 +93,12 @@
 		7A555B592C674C0B000A7AA7 /* BRCLineBoxView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRCLineBoxView.m; sourceTree = "<group>"; };
 		7A555B5B2C6750F6000A7AA7 /* BRCGiftBoxView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRCGiftBoxView.h; sourceTree = "<group>"; };
 		7A555B5C2C6750F6000A7AA7 /* BRCGiftBoxView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRCGiftBoxView.m; sourceTree = "<group>"; };
-		7A555C1C2C69F826000A7AA7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
-		7A555C1D2C69F826000A7AA7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		7A9BB4022C64A17700BA6A7A /* BRCRootTabBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRCRootTabBarViewController.h; sourceTree = "<group>"; };
 		7A9BB4032C64A17700BA6A7A /* BRCRootTabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRCRootTabBarViewController.m; sourceTree = "<group>"; };
 		7A9BB4052C64A2E700BA6A7A /* BRCBoxInputExampleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRCBoxInputExampleViewController.h; sourceTree = "<group>"; };
 		7A9BB4062C64A2E700BA6A7A /* BRCBoxInputExampleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRCBoxInputExampleViewController.m; sourceTree = "<group>"; };
+		7AAA6C502C8062EF00CFC8E4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		7AAA6C512C8062EF00CFC8E4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		7AB7250A2C6087180042184A /* BRCBoxInputView_OC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BRCBoxInputView_OC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AB7250D2C6087180042184A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7AB7250E2C6087180042184A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -782,7 +782,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				7AB725172C6087180042184A /* Base */,
-				7A555C1C2C69F826000A7AA7 /* zh-Hans */,
+				7AAA6C512C8062EF00CFC8E4 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -791,7 +791,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				7AB7251C2C6087190042184A /* Base */,
-				7A555C1D2C69F826000A7AA7 /* zh-Hans */,
+				7AAA6C502C8062EF00CFC8E4 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

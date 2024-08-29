@@ -20,10 +20,10 @@ A versatile, highly customizable input view for iOS. It supports various text in
     <tbody>
         <tr>
             <td>
-                <img src="https://jaychou202302.github.io/media/BRCBoxInputView/main.PNG"/>
+                <img src="https://jaychou202302.github.io/media/BRCBoxInputView/main-en.PNG"/>
             </td>
             <td>
-                <img src="https://jaychou202302.github.io/media/BRCBoxInputView/test.PNG"/>
+                <img src="https://jaychou202302.github.io/media/BRCBoxInputView/test-en.PNG"/>
             </td>
         </tr>
     </tbody>
