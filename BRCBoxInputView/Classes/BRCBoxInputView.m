@@ -9,6 +9,15 @@
 #import <objc/message.h>
 
 static NSString *const kBRCBoxCollectionViewCellID = @"BRCBoxCollectionViewCellID";
+static NSString *const kBRCCustomBoxCollectionViewCellID = @"BRCCustomBoxCollectionViewCellID";
+
+NSArray<NSLayoutConstraint *> *createEdgeConstraints(UIView *view, UIView *containerView) {
+    NSLayoutConstraint *leadingConstraint = [view.leadingAnchor constraintEqualToAnchor:containerView.leadingAnchor];
+    NSLayoutConstraint *trailingConstraint = [view.trailingAnchor constraintEqualToAnchor:containerView.trailingAnchor];
+    NSLayoutConstraint *topConstraint = [view.topAnchor constraintEqualToAnchor:containerView.topAnchor];
+    NSLayoutConstraint *bottomConstraint = [view.bottomAnchor constraintEqualToAnchor:containerView.bottomAnchor];
+    return @[leadingConstraint, trailingConstraint, topConstraint, bottomConstraint];
+}
 
 #define NoWarningPerformSelector(Stuff) \
 do { \
@@ -164,6 +173,37 @@ do { \
 
 @end
 
+/// v1.2.0 For SwiftUI
+@interface BRCCustomBoxView : UICollectionViewCell<BRCBoxViewProtocol>
+@property (nonatomic, strong) UIView<BRCBoxViewProtocol> *mainView;
+@end
+
+@implementation BRCCustomBoxView
+
+- (void)setMainView:(UIView<BRCBoxViewProtocol> *)mainView {
+    if (![self.mainView isEqual:mainView] && [mainView isKindOfClass:[UIView class]]) {
+        [self.mainView removeFromSuperview];
+        _mainView = mainView;
+        [self.contentView addSubview:self.mainView];
+        self.mainView.translatesAutoresizingMaskIntoConstraints = NO;
+        [NSLayoutConstraint activateConstraints:createEdgeConstraints(self.mainView, self.contentView)];
+    }
+}
+
+- (BOOL)isNotEmpty { return [self.mainView performSelector:@selector(isNotEmpty)];}
+- (BOOL)isBoxSelected { return [self.mainView performSelector:@selector(isBoxSelected)];}
+- (void)setSecureTextEntry:(BOOL)secureTextEntry withDuration:(CGFloat)duration delay:(CGFloat)delay  { [self.mainView setSecureTextEntry:secureTextEntry withDuration:duration delay:delay];
+}
+- (void)didSelectInputBox { [self.mainView didSelectInputBox]; }
+- (void)didUnSelectInputBox { [self.mainView didUnSelectInputBox];}
+- (void)setBoxText:(NSString *)text { [self.mainView setBoxText:text]; }
+- (void)setBoxPlaceHolder:(NSString *)placeHolder { [self.mainView setBoxPlaceHolder:placeHolder]; }
+- (void)setBoxStyle:(BRCBoxStyle *)boxStyle { [self.mainView setBoxStyle:boxStyle]; }
+//
+
+
+@end
+
 @interface BRCBoxView ()
 @property (nonatomic, assign) BOOL               secureTextEntry;
 @property (nonatomic, assign) NSTimeInterval     secureTransitionDuration;
@@ -171,7 +211,6 @@ do { \
 @property (nonatomic, strong) BRCBoxStyle        *boxStyle;
 @property (nonatomic, strong) NSLayoutConstraint *imageWidthConstraint;
 @property (nonatomic, strong) NSLayoutConstraint *imageHeightConstraint;
-
 @end
 
 @implementation BRCBoxView
@@ -188,7 +227,7 @@ do { \
 
 - (void)initSubViews {
     [self.contentView addSubview:self.boxLabel];
-    [self addConstraintsToView:self.boxLabel withConstraints:[self edgeConstraintsWithView:self.boxLabel]];
+    [self addConstraintsToView:self.boxLabel withConstraints:createEdgeConstraints(self.boxLabel, self.contentView)];
     [self.contentView addSubview:self.secretImageView];
     [self addConstraintsToView:self.secretImageView withConstraints:[self imageViewConstraints]];
 }
@@ -197,15 +236,6 @@ do { \
              withConstraints:(NSArray<__kindof NSLayoutConstraint *> *)constraints {
     view.translatesAutoresizingMaskIntoConstraints = NO;
     [NSLayoutConstraint activateConstraints:constraints];
-}
-
-- (NSArray<__kindof NSLayoutConstraint *> *)edgeConstraintsWithView:(UIView *)view {
-    return @[
-        [view.leadingAnchor constraintEqualToAnchor:self.contentView.leadingAnchor],
-        [view.trailingAnchor constraintEqualToAnchor:self.contentView.trailingAnchor],
-        [view.topAnchor constraintEqualToAnchor:self.contentView.topAnchor],
-        [view.bottomAnchor constraintEqualToAnchor:self.contentView.bottomAnchor]
-    ];
 }
 
 - (NSArray<__kindof NSLayoutConstraint *> *)imageViewConstraints {
@@ -369,6 +399,7 @@ BRCBoxFlowLayoutDelegate
 @property (nonatomic, assign, readonly) BRCBoxAlignment  boxAlignment;
 @property (nonatomic, assign, readonly) BOOL             isMenuActionsVaild;
 @property (nonatomic, assign, readonly) CGFloat          collectionViewContainerWidth;
+@property (nonatomic, assign, readonly) UICollectionViewScrollPosition scrollPosition;
 
 @end
 
@@ -415,6 +446,7 @@ BRCBoxFlowLayoutDelegate
 }
 
 - (void)commonInit {
+    _focusScrollPosition = BRCBoxFocusScrollPositionCenter;
     _boxViewClass = [BRCBoxView class];
     _menuDirection = UIMenuControllerArrowDown;
     _contentInsets = UIEdgeInsetsZero;
@@ -466,11 +498,6 @@ BRCBoxFlowLayoutDelegate
 - (void)layoutSubviews {
     [super layoutSubviews];
     [self refreshCollectionViewLayout];
-    if (self.caretView.frame.size.height == 0 && self.caretHeight <= 0) {
-        self.caretHeight = MAX(self.frame.size.height / 3, 8);
-        CGRect oldFrame = self.caretView.frame;
-        self.caretView.frame = CGRectMake(oldFrame.origin.x, oldFrame.origin.y, oldFrame.size.width, self.caretHeight);
-    }
 }
 
 #pragma mark - actions
@@ -483,7 +510,7 @@ BRCBoxFlowLayoutDelegate
     if (self.isMenuActionsVaild &&
         gestureRecognizer.state == UIGestureRecognizerStateBegan) {
         [self becomeFirstResponder];
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.26 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self showMenu];
         });
     }
@@ -529,6 +556,7 @@ BRCBoxFlowLayoutDelegate
 }
 
 - (void)setText:(NSString *)text {
+    if ([_inputText isKindOfClass:[NSString class]] && [_inputText isEqualToString:text]) return;
     _inputText = nil;
     [self insertText:text];
 }
@@ -552,7 +580,7 @@ BRCBoxFlowLayoutDelegate
 #pragma mark - private
 
 - (BOOL)shouldDisplayCaretView {
-    BOOL shouldDisplayCaretView = self.showCaret && self.isFirstResponder && self.caretView.alpha == 0 && self.inputText.length < self.inputMaxLength;
+    BOOL shouldDisplayCaretView = self.showCaret && self.isFirstResponder && self.inputText.length < self.inputMaxLength;
     if ([self.placeHolder isKindOfClass:[NSString class]] && self.placeHolder.length > 0) {
         return self.currentInputIndex > self.placeHolder.length - 1 && shouldDisplayCaretView;
     }
@@ -561,12 +589,10 @@ BRCBoxFlowLayoutDelegate
 
 - (void)updateInputContent {
     if (![self.inputText isKindOfClass:[NSString class]]) return;
+    [self hideCaretView];
     if (self.inputText.length >= self.inputMaxLength) {
         self.inputText = [self.inputText substringToIndex:self.inputMaxLength];
         if (self.autoDismissKeyBoardWhenFinishInput) [self resignFirstResponder];
-        [self hideCaretView];
-    } else {
-        [self showCaretView];
     }
     for (NSInteger i = 0; i < self.inputMaxLength; i ++) {
         [self updateBoxTextWithIndex:i];
@@ -577,26 +603,28 @@ BRCBoxFlowLayoutDelegate
 
 - (void)moveCaretViewToCurrentBoxView {
     if (!self.isFirstResponder) return;
-    if (self.currentInputIndex < [self.collectionView numberOfItemsInSection:0]) {
-        [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:self.currentSelectIndex inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
+    if (self.currentInputIndex <= [self.collectionView numberOfItemsInSection:0]) {
+        [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:self.currentSelectIndex inSection:0] atScrollPosition:self.scrollPosition animated:YES];
     }
     UICollectionViewCell<BRCBoxViewProtocol> *boxView = [self boxViewWithIndex:self.currentSelectIndex];
     if ([boxView isKindOfClass:[UIView class]]) {
         self.caretView.frame = CGRectMake(0, 0,self.caretWidth, self.caretHeight);
         self.caretView.center = boxView.center;
+        self.caretView.backgroundColor = self.caretTintColor;
         [self showCaretView];
     }
 }
 
 - (void)showCaretView {
     if (![self shouldDisplayCaretView]) return;
+    self.caretView.hidden = NO;
     [self.caretView.layer removeAnimationForKey:@"blinkAnimation"];
     [self.caretView.layer addAnimation:[self createBlinkAnimation] forKey:@"blinkAnimation"];
 }
 
 - (void)hideCaretView {
     [self.caretView.layer removeAnimationForKey:@"blinkAnimation"];
-    self.caretView.alpha = 0;
+    self.caretView.hidden = YES;
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout
@@ -623,7 +651,18 @@ BRCBoxFlowLayoutDelegate
      numberOfItemsInSection:(NSInteger)section { return self.inputMaxLength; }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell<BRCBoxViewProtocol> *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kBRCBoxCollectionViewCellID forIndexPath:indexPath];
+    UICollectionViewCell<BRCBoxViewProtocol> *cell;
+    if ([self isDelegateRespondsToSelector:@selector(boxWithIndex:inInputView:) delegate:self.delegate]) {
+        UIView<BRCBoxViewProtocol> *contentView = (UIView<BRCBoxViewProtocol> *)[self.delegate boxWithIndex:indexPath.item inInputView:self];
+        if ([contentView isKindOfClass:[UIView class]] ) {
+            cell = [collectionView dequeueReusableCellWithReuseIdentifier:kBRCCustomBoxCollectionViewCellID forIndexPath:indexPath];
+            if ([cell isKindOfClass:[BRCCustomBoxView class]]) {
+                [(BRCCustomBoxView *)cell setMainView:contentView];}
+        }
+    }
+    if (cell == nil) {
+       cell = [collectionView dequeueReusableCellWithReuseIdentifier:kBRCBoxCollectionViewCellID forIndexPath:indexPath];
+    }
     BOOL isSelected = indexPath.item == self.currentSelectIndex && self.isFirstResponder;
     [self updateBoxSelectStateWithView:cell withIndex:indexPath.item isSelect:isSelected];
     [self updateBoxTextWithView:cell withIndex:indexPath.item];
@@ -672,21 +711,20 @@ BRCBoxFlowLayoutDelegate
 
 - (BOOL)becomeFirstResponder {
     BOOL becomeFirstResponder = [super becomeFirstResponder];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self moveCaretViewToCurrentBoxView];
+    [self sendViewDelegetEventWithSEL:@selector(didBecomeFirstResponderWithView:) withDelegate:self.delegate];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.05 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self updateBoxSelectStateWithIndex:self.currentSelectIndex isSelect:YES];
-        [self showCaretView];
-        [self sendViewDelegetEventWithSEL:@selector(didBecomeFirstResponderWithView:) withDelegate:self.delegate];
+        [self moveCaretViewToCurrentBoxView];
     });
     return becomeFirstResponder;
 }
 
 - (BOOL)resignFirstResponder {
     BOOL resignFirstResponder = [super resignFirstResponder];
-    dispatch_async(dispatch_get_main_queue(), ^{
+    [self sendViewDelegetEventWithSEL:@selector(didResignFirstResponderWithView:) withDelegate:self.delegate];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.05 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self updateBoxSelectStateWithIndex:self.currentSelectIndex isSelect:NO];
         [self hideCaretView];
-        [self sendViewDelegetEventWithSEL:@selector(didResignFirstResponderWithView:) withDelegate:self.delegate];
     });
     return resignFirstResponder;
 }
@@ -715,7 +753,7 @@ BRCBoxFlowLayoutDelegate
     [self updateBoxTextWithView:[self boxViewWithIndex:index] withIndex:index];
 }
 
-- (void)updateBoxTextWithView:(id<BRCBoxViewProtocol>)boxView withIndex:(NSInteger)index{
+- (void)updateBoxTextWithView:(id<BRCBoxViewProtocol,NSObject>)boxView withIndex:(NSInteger)index{
     if (![boxView isKindOfClass:[UIView class]]) return;
     if ([boxView conformsToProtocol:@protocol(BRCBoxViewProtocol)]) {
         NSString *boxText = @"";
@@ -747,8 +785,10 @@ BRCBoxFlowLayoutDelegate
 - (void)excuteUpdateText:(void (^)(void))updateBlock {
     [self sendViewDelegetEventWithSEL:@selector(boxTextWillChange:) withDelegate:self.delegate];
     if (updateBlock) updateBlock();
-    [self singleExecute:^{ [self updateInputContent]; }];
-    [self sendViewDelegetEventWithSEL:@selector(boxTextDidChange:) withDelegate:self.delegate];
+    [self singleExecute:^{
+        [self updateInputContent];
+        [self sendViewDelegetEventWithSEL:@selector(boxTextDidChange:) withDelegate:self.delegate];
+    }];
 }
 
 - (void)singleExecute:(void (^)(void))block {
@@ -855,10 +895,12 @@ BRCBoxFlowLayoutDelegate
 #pragma mark - getter
 
 - (BRCBoxStyle *)boxStyleForIndex:(NSInteger)index {
+    BRCBoxStyle *style = (index == self.currentSelectIndex) && self.isFirstResponder ? self.selectedBoxStyle : self.boxStyle;
     if ([self isDelegateRespondsToSelector:@selector(boxStyleWithIndex:withBoxView:inInputView:) delegate:self.delegate]) {
-        return [self.delegate boxStyleWithIndex:index withBoxView:(BRCBoxView *)[self boxViewWithIndex:index] inInputView:self];
+        BRCBoxStyle *delegateStyle = [self.delegate boxStyleWithIndex:index withBoxView:(BRCBoxView *)[self boxViewWithIndex:index] inInputView:self];
+        if ([delegateStyle isKindOfClass:[BRCBoxStyle class]]) style = delegateStyle;
     }
-    return (index == self.currentSelectIndex) && self.isFirstResponder ? self.selectedBoxStyle : self.boxStyle;
+    return style;
 }
 
 - (CGSize)boxSizeForIndex:(NSInteger)index {
@@ -905,11 +947,15 @@ BRCBoxFlowLayoutDelegate
     return (UICollectionViewCell<BRCBoxViewProtocol> *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0]];
 }
 
-- (NSString *)text { return _inputText; }
+- (NSString *)text { return [_inputText isKindOfClass:[NSString class]] ? _inputText : @""; }
 - (UIPasteboard *)pasteboard { return [UIPasteboard generalPasteboard]; }
 - (BRCBoxAlignment)boxAlignment { return _alignment; }
 - (CGFloat)caretWidth { return MIN(self.frame.size.width, _caretWidth); }
-- (CGFloat)caretHeight { return MIN(self.frame.size.height, _caretHeight); }
+- (CGFloat)caretHeight { if (_caretHeight <= 0) { return MAX(self.frame.size.height / 3, 8); }
+    return MIN(self.frame.size.height, _caretHeight);
+}
+- (UICollectionViewScrollPosition)scrollPosition { if (self.inputMaxLength == self.text.length) return UICollectionViewScrollPositionRight;
+    return (UICollectionViewScrollPosition)self.focusScrollPosition; }
 
 #pragma mark - setter
 
@@ -946,8 +992,7 @@ BRCBoxFlowLayoutDelegate
 }
 
 - (void)setInputMaxLength:(NSUInteger)inputMaxLength {
-    _inputMaxLength = inputMaxLength;
-    [self.collectionView reloadData];
+    if (_inputMaxLength != inputMaxLength) { _inputMaxLength = inputMaxLength; [self.collectionView reloadData]; }
 }
 
 #pragma mark - props
@@ -966,6 +1011,7 @@ BRCBoxFlowLayoutDelegate
         _collectionView.dataSource = self;
         _collectionView.clipsToBounds = NO;
         [_collectionView registerClass:_boxViewClass forCellWithReuseIdentifier:kBRCBoxCollectionViewCellID];
+        [_collectionView registerClass:[BRCCustomBoxView class] forCellWithReuseIdentifier:kBRCCustomBoxCollectionViewCellID];
         [_collectionView setTranslatesAutoresizingMaskIntoConstraints:NO];
     }
     return _collectionView;
@@ -975,7 +1021,7 @@ BRCBoxFlowLayoutDelegate
     if (!_caretView) {
         _caretView = [[UIView alloc] init];
         _caretView.backgroundColor = self.caretTintColor;
-        _caretView.alpha = 0;
+        _caretView.hidden = YES;
     }
     return _caretView;
 }

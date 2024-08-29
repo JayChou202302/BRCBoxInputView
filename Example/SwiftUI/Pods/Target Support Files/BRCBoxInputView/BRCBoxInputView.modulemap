@@ -1,0 +1,6 @@
+framework module BRCBoxInputView {
+  umbrella header "BRCBoxInputView-umbrella.h"
+
+  export *
+  module * { export * }
+}

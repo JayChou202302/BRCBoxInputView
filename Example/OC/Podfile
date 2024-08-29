@@ -6,7 +6,7 @@ target 'BRCBoxInputView_OC' do
   
   pod 'BRCBoxInputView', :path => '../../../BRCBoxInputView'
   pod 'BRCPopUp'
-  pod 'BRCFastTest','~>0.1.1'
+  pod 'BRCFastTest'
 
 end
 

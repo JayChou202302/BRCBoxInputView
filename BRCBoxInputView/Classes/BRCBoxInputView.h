@@ -10,8 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- * 输入框的样式
- * The Style For Box
+ * The Style For Box / 输入框的样式
  */
 @interface BRCBoxStyle : NSObject
 
@@ -21,13 +20,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) CGFloat         boxShadowRadius;
 @property (nonatomic, assign) CGSize          boxShadowOffset;
 @property (nonatomic, assign) CGSize          boxSecretImageSize;
-@property (nonatomic, copy, nullable)   UIColor         *boxBackgroundColor;
-@property (nonatomic, copy, nullable)   UIColor         *boxBorderColor;
-@property (nonatomic, copy, nullable)   UIColor         *boxShadowColor;
-@property (nonatomic, copy, nullable)   UIColor         *boxSecretImageColor;
-@property (nonatomic, copy, nullable)   UIImage         *boxSecretImage;
-@property (nonatomic, copy, nullable)   NSDictionary<NSAttributedStringKey,id>    *textAttributedDict;
-@property (nonatomic, copy, nullable)   NSDictionary<NSAttributedStringKey,id>    *placeHolderAttributedDict;
+@property (nonatomic, copy, nullable)  UIColor         *boxBackgroundColor;
+@property (nonatomic, copy, nullable)  UIColor         *boxBorderColor;
+@property (nonatomic, copy, nullable)  UIColor         *boxShadowColor;
+@property (nonatomic, copy, nullable)  UIColor         *boxSecretImageColor;
+@property (nonatomic, copy, nullable)  UIImage         *boxSecretImage;
+@property (nonatomic, copy, nullable)  NSDictionary<NSAttributedStringKey,id>    *textAttributedDict;
+@property (nonatomic, copy, nullable)  NSDictionary<NSAttributedStringKey,id>    *placeHolderAttributedDict;
 
 + (instancetype)defaultStyle;
 + (instancetype)defaultSelectedStyle;
@@ -35,8 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- * 输入框基础视图
- * The BaseView For Box
+ * The BaseView For Box / 输入框基础视图
  * @discussion 建议自定义视图的时候 继承该类 当然你
  * 也可以选择继承 `UICollectionViewCell` 但是必须
  * 要继承 `BRCBoxViewProtocol` 来实现一些功能
@@ -70,8 +68,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) BRCBoxStyle                   *selectedBoxStyle;
 
 /**
- * `UIMenuController` 可操作类型
- *  The MenuActions For UIMenuController
+ * The MenuActions For UIMenuController / `UIMenuController` 可操作类型
  *  defalt is `@[
  *  `@(BRCBoxMenuActionTypeDelete),
  *  `@(BRCBoxMenuActionTypeCut)`,
@@ -88,15 +85,21 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSArray                        *menuActions;
 
 /**
- * `UIMenuController` 弹出方向
- *  The Direction For `UIMenuController`
+ * The Direction For `UIMenuController` / `UIMenuController` 弹出方向
  *  default is `UIMenuControllerArrowDown`
  */
 @property (nonatomic, assign) UIMenuControllerArrowDirection menuDirection;
 
+
 /**
- * 输入框的最大输入长度
- * The Max InputLength For View
+ * 输入框被选中时,视图滑动到该试图的相对位置
+ * When the input box is selected, the view slides to the relative position to try again
+ * deault is `center`
+ */
+@property (nonatomic, assign) BRCBoxFocusScrollPosition focusScrollPosition;
+
+/**
+ * The Max InputLength For View / 输入框的最大输入长度
  * default is `5`
  * @discussion 当你在初始化后再设置改属性时，
  * 会导致视图的重绘制，所以请不要频繁设置改属性
@@ -113,8 +116,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSUInteger inputMaxLength;
 
 /**
- * 输入框视图的 Class 类型
- * The BoxView Class
+ * The BoxView Class / 输入框视图的 Class 类型
  * default is `BRCBoxView.Class`
  * @discussion 当你需要高度定制你的输入框视图的
  * 时候，你可以创建一个自定义的 BoxView，同时设置
@@ -128,8 +130,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) Class boxViewClass;
 
 /**
- * 输入的正则限制
- * Regular input restrictions
+ * Regular input restrictions / 输入的正则限制
  * default is `nil`
  * @discussion 你可以使用该属性来完成对
  * 输入框内容的自定义限制
@@ -141,29 +142,25 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *inputPattern;
 
 /**
- * 加密输入时的渐出过渡时长
- * Gradual transition duration during encrypted input
+ * Gradual transition duration during encrypted input / 加密输入时的渐出过渡时长
  * default is `0.2`
  */
 @property (nonatomic, assign) NSTimeInterval secureTransitionDuration;
 
 /**
- * 加密输入时的加密视图延时时常
- * The delay of encrypted views during input encryption is often high
+ * The delay of encrypted views during input encryption is often high / 加密输入时的加密视图延时时长
  * default is `0.2`
  */
 @property (nonatomic, assign) NSTimeInterval secureDelayDuration;
 
 /**
- * 输入框视图的对齐方式
- * The Alignment For InputView
+ * The Alignment For InputView / 输入框视图的对齐方式
  * default is `BRCBoxAlignmentCenter`
  */
 @property (nonatomic, assign) BRCBoxAlignment alignment;
 
 /**
- * 是否完成输入时自动消失键盘
- * Whether to automatically disappear the keyboard when typing is completed
+ * Whether to automatically disappear the keyboard when typing is completed / 是否完成输入时自动消失键盘
  * default is `NO`
  */
 @property (nonatomic, assign) BOOL autoDismissKeyBoardWhenFinishInput;
@@ -176,36 +173,36 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL autoFillBoxContainer;
 
 /**
- * 占位符
- * The PlaceHolder For InputView
+ *  The PlaceHolder For InputView / 占位符
  * default is `nil`
  */
 @property (nonatomic, strong) NSString *placeHolder;
 
 /**
- * 点击视图的回调
- * CallBack For Click InputView
+ * CallBack For Click InputView / 点击视图的回调
  * default is `[self toggleFirstResponder]`
  */
 @property (nonatomic, copy) void (^onClickInputViewBlock)(void);
 
 /**
- * 输入框的输入文本
- * The InputText For InputView
+ * The InputText For InputView / 输入框的输入文本
  */
 @property (nonatomic, strong, nullable) NSString *text;
 
 /**
- * 输入框当前所在的位置
- * The InputIndex For InputView
+ * The InputIndex For InputView / 输入框当前所在的位置
  */
 @property (nonatomic, assign, readonly) NSUInteger currentInputIndex;
+
+/**
+ * The SelectIndex For InputView / 输入框当前选中的位置
+ */
+@property (nonatomic, assign, readonly) NSUInteger currentSelectIndex;
 
 #pragma mark - reload
 
 /**
- * 刷新视图
- * Reload Input View
+ * Reload Input View / 刷新视图
  * @discussion 当你设置了某些属性但是发现没有生效
  * 的时候，可以调用该方法来完成视图的重绘和刷新
  * 建议不要频繁调用
@@ -219,6 +216,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)reloadView;
 - (void)reloadBoxWithIndex:(NSInteger)index;
 
+/**
+ * The BoxSize For Index / 根据Index获取BoxSize
+ * @discussion v1.2.0 For SwiftUI
+ */
+- (CGSize)boxSizeForIndex:(NSInteger)index;
+
 #pragma mark - init
 
 - (instancetype)initWithInputLength:(NSUInteger)length;
@@ -229,7 +232,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)toggleFirstResponder;
 - (void)hideMenu;
 - (void)showMenu;
-
 
 @end
 
