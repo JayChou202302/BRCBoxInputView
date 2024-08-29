@@ -91,26 +91,27 @@ BRCBoxInput<BRCBox>(text: $boxInputText,isFocus: $isBoxInputFocus)
 
 }
 ```
-<br>
+
+----
 
 **Q:** 我想要自定义输入光标的样式，我应该如何设置参数？<p>
 **A:** <p>
 `caretWidth`、`caretHeight`、`caretMaxOpacity`、`caretMinOpacity`、`blinkDuration`、`caretTintColor`、`showCaret` 通过这些参数，你可以自定义光标的宽度和高度、颜色以及光标动画的时长、最大/最小透明度 <p>
 
-<br>
+----
 
 **Q:** 我想要输入框可以进行复制、粘贴、剪切、删除等操作，我应该如何设置<p>
 **A:** <p>
 `menuActions` 通过设置该参数，你可以决定输入框对哪些剪切板方法的响应，目前支持响应输入框的 复制、粘贴、剪切、删除 四个方法，且内部均已适配完善<p>
 `menuDirection` 决定菜单弹出的方向<p>
 
-<br>
+----
 
 **Q:** 我想要自定义输入框的加密样式，我应该如何设置参数？<p>
 **A:** <p>
 `secureTransitionDuration`、`secureDelayDuration` 通过设置这些参数，你可以决定加密样式的过渡时长以及延迟展示时长。<p>
 
-<br>
+----
 
 **Q:** 我想要自定义输入框的键盘、交互样式，我应该如何设置参数？<p>
 **A:** <p>
@@ -120,8 +121,7 @@ BRCBoxInput<BRCBox>(text: $boxInputText,isFocus: $isBoxInputFocus)
 `focusScrollPosition`: 当设置的 `inputMaxLength` 过多的时候，其内部会成为一个可滑动的视图，当输入到一个超出用户视图的输入框时，内部会自动滚动到当前输入视图，你可以选择滚动到当前输入视图的左侧/中间/右侧<p>
 `onClickInputViewBlock`: 点击输入框视图进行的操作，默认是点击输入框会反转当前的键盘展示情况 <p>
 
-<br>
-
+----
 
 **Q:** 我想要自定义输入框的内容，我应该如何设置参数？<p>
 **A:** <p>
@@ -130,13 +130,13 @@ BRCBoxInput<BRCBox>(text: $boxInputText,isFocus: $isBoxInputFocus)
 `alignment` 输入框的对齐样式，当输入框的长度比较短的时候，给定的容器宽度比较长时，这个时候你或许需要设置其对齐方式，例如左对齐/居中对齐/右对齐 <p>
 `inputPattern` 输入框的正则输入过滤，你可以通过设置该属性来保证输入框输入的内容是你想要的文本<p>
 
-<br>
+----
 
 **Q:** 设置的参数不生效是什么原因？<p>
 **A:** <p>
 内部对属性的设置方法都进行了重写，但是可能存在少部分更新属性比较频繁的时候，会出现没有更新样式的可能，因此我们建议，在完成属性的时候都去调用 `-reloadView:` 方法来重新加载视图，保证视图的样式和你设置的完全一样
 
-<br>
+----
 
 **Q:** 我想要重写输入框的Box，来达到高度自定义的样式，我应该如何操作？<p>
 **A:**<p>
