@@ -1,31 +1,36 @@
 PODS:
   - BRCBoxInputView (1.2.0)
-  - BRCFastTest (0.1.1):
+  - BRCFastTest (0.2.1):
+    - BRCFlexTagBox
     - FLEX
+  - BRCFlexTagBox (0.1.0)
   - BRCPopUp (1.0.0)
   - FLEX (5.22.10)
 
 DEPENDENCIES:
   - BRCBoxInputView (from `../../../BRCBoxInputView`)
-  - BRCFastTest
+  - BRCFastTest (from `../../../BRCFastTest`)
   - BRCPopUp
 
 SPEC REPOS:
   trunk:
-    - BRCFastTest
+    - BRCFlexTagBox
     - BRCPopUp
     - FLEX
 
 EXTERNAL SOURCES:
   BRCBoxInputView:
     :path: "../../../BRCBoxInputView"
+  BRCFastTest:
+    :path: "../../../BRCFastTest"
 
 SPEC CHECKSUMS:
   BRCBoxInputView: e5dbb0763b97e9a71dbe85a5f589f1a76539c08d
-  BRCFastTest: 9fded46000b8bede5061259932cee31e02e23511
+  BRCFastTest: 50404dc7b58ad2311be7c48bd470d2ecd6fc2f71
+  BRCFlexTagBox: d713c2c417a3573d7d7e236750e90ad936616262
   BRCPopUp: dec87fb3229b13c1a66aa319da0e9952e46a83bc
   FLEX: f21ee4f498eed3f8a1eded66b21939fd3b7a22ce
 
-PODFILE CHECKSUM: 38ab7e3a891bb5b10e906f2a1a982b0e5e94776f
+PODFILE CHECKSUM: a7004fa09899de8c8e56290266959d610c0b0fed
 
 COCOAPODS: 1.15.2

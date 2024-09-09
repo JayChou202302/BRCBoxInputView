@@ -178,12 +178,14 @@ code_sign_if_enabled() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/BRCBoxInputView/BRCBoxInputView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/BRCFastTest/BRCFastTest.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/BRCFlexTagBox/BRCFlexTagBox.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/BRCPopUp/BRCPopUp.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/FLEX/FLEX.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/BRCBoxInputView/BRCBoxInputView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/BRCFastTest/BRCFastTest.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/BRCFlexTagBox/BRCFlexTagBox.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/BRCPopUp/BRCPopUp.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/FLEX/FLEX.framework"
 fi

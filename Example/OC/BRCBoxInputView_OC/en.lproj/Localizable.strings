@@ -7,6 +7,13 @@
 */
 "key.main.tab.test.title" = "Test";
 "key.main.tab.test.example" = "Example";
+"key.component.tag.01" = "iOS";
+"key.component.tag.02" = "SwiftUI";
+"key.component.tag.03" = "Objective-c";
+"key.component.tag.04" = "UIKeyInput";
+"key.component.tag.05" = "Highly customizable";
+"key.component.tag.06" = "Simple Math";
+"key.component.tag.07" = "Powerful";
 "key.component.description" = "An efficient and easy-to-use verification code input component";
 "key.component.functions.01" = "Based on UIKeyInput protocol";
 "key.component.functions.02" = "Supports multiple styles such as placeholders and shadows";

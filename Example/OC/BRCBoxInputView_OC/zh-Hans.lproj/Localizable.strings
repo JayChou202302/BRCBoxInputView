@@ -8,6 +8,13 @@
 
 "key.main.tab.test.title" = "测试";
 "key.main.tab.test.example" = "样例";
+"key.component.tag.01" = "iOS";
+"key.component.tag.02" = "SwiftUI";
+"key.component.tag.03" = "Objective-c";
+"key.component.tag.04" = "UIKeyInput";
+"key.component.tag.05" = "高度自定义";
+"key.component.tag.06" = "简洁易用";
+"key.component.tag.07" = "功能强大";
 "key.component.description" = "一个高效易用的验证码输入组件";
 "key.component.functions.01" = "基于 UIKeyInput 协议";
 "key.component.functions.02" = "支持占位符、阴影等多种样式";

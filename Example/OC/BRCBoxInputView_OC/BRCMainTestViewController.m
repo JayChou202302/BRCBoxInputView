@@ -17,7 +17,7 @@
 #import <BRCFastTest/YYKitMacro.h>
 #import <FLEX/FLEXMacros.h>
 #import "LOTAnimationView.h"
-#import "BRCToast.h"
+#import <BRCFastTest/BRCToast.h>
 
 #define kSafeAreaBottomSpcing [UIApplication sharedApplication].keyWindow.safeAreaInsets.bottom
  
@@ -329,6 +329,19 @@
 
 - (NSString *)componentDescription {
     return @"key.component.description";
+}
+
+
+- (NSArray *)componentTags {
+    return @[
+        @"key.component.tag.01",
+        @"key.component.tag.02",
+        @"key.component.tag.03",
+        @"key.component.tag.04",
+        @"key.component.tag.05",
+        @"key.component.tag.06",
+        @"key.component.tag.07",
+    ];
 }
 
 - (NSArray *)componentFunctions {

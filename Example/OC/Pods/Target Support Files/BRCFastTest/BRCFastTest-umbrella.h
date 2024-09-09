@@ -15,6 +15,7 @@
 #import "BRCDebugWindow.h"
 #import "BRCTestAppDelegate.h"
 #import "BRCTestRootTabBarViewController.h"
+#import "BRCToast.h"
 #import "MASCompositeConstraint.h"
 #import "MASConstraint+Private.h"
 #import "MASConstraint.h"
