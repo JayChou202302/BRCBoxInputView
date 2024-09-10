@@ -6,7 +6,7 @@ target 'BRCBoxInputView_SwiftUI' do
   use_frameworks!	
   pod 'BRCBoxInputView'
   pod 'BRCPopUp'
-  pod 'BRCFastTest'
+  pod 'BRCFastTest','~> 0.2.3'
   # Pods for BRCBoxInputView_SwiftUI
 
 end

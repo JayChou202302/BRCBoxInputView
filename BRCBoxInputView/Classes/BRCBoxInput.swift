@@ -226,7 +226,7 @@ public struct BRCBoxInputParameters {
 }
 
 public extension BRCBoxInput {
-    private func updateParams(_ block : ((inout BRCBoxInputParameters) -> Void)) -> BRCBoxInput {
+    private func updateParams(_ block : ((inout BRCBoxInputParameters) -> Void)) -> some View {
         var input = self;
         var params = input.params;
         block(&params);
@@ -234,182 +234,182 @@ public extension BRCBoxInput {
         return input;
     }
     /// Set the input box length / 输入框长度
-    func inputLength(_ length : UInt) -> BRCBoxInput{
+    func inputLength(_ length : UInt) -> some View{
         return updateParams { params in
             params.inputMaxLength = length;
         };
     }
 
     /// Set the style for the Nth input box / 第N个输入框的样式
-    func boxStyleWithIndex(_ block : @escaping ((UInt,Bool) -> BRCBoxStyle)) -> BRCBoxInput {
+    func boxStyleWithIndex(_ block : @escaping ((UInt,Bool) -> BRCBoxStyle)) -> some View {
         return updateParams { params in
             params.boxStyleWithIndex = block;
         };
     }
 
     /// Set the style for the input box in normal state / 输入框正常状态下的样式
-    func boxNormalStyle(_ style : @escaping (BRCBoxStyle) -> (BRCBoxStyle) ) -> BRCBoxInput {
+    func boxNormalStyle(_ style : @escaping (BRCBoxStyle) -> (BRCBoxStyle) ) -> some View {
         return updateParams { params in
             params.boxStyle = style(params.boxStyle);
         };
     }
 
     /// Set the style for the input box in selected state / 输入框选中状态下的样式
-    func boxSelectedStyle(_ style : @escaping (BRCBoxStyle) -> (BRCBoxStyle)) -> BRCBoxInput {
+    func boxSelectedStyle(_ style : @escaping (BRCBoxStyle) -> (BRCBoxStyle)) -> some View {
         return updateParams { params in
             params.selectedBoxStyle = style(params.selectedBoxStyle);
         };
     }
 
     /// Whether to show the caret / 是否展示光标
-    func isShowCaret(_ isShow : Bool) -> BRCBoxInput {
+    func isShowCaret(_ isShow : Bool) -> some View {
         return updateParams { params in
             params.showCaret = isShow;
         };
     }
 
     /// Set the size of the input box / 输入框的大小
-    func boxSize(_ size : CGSize) -> BRCBoxInput {
+    func boxSize(_ size : CGSize) -> some View {
         return updateParams { params in
             params.boxSize = size;
         }
     }
 
     /// Set the spacing between input boxes / 输入框的间距
-    func boxSpace(_ space : CGFloat) -> BRCBoxInput {
+    func boxSpace(_ space : CGFloat) -> some View {
         return updateParams { params in
             params.boxSpace = space;
         }
     }
 
     /// Set the direction of `UIMenuController` pop-up button / 设置 `UIMenuController` 弹出按钮的方向
-    func menuDirection(_ direction : UIMenuController.ArrowDirection) -> BRCBoxInput {
+    func menuDirection(_ direction : UIMenuController.ArrowDirection) -> some View {
         return updateParams { params in
             params.menuDirection = direction;
         }
     }
 
     /// Set the content insets / 内间距
-    func contentInsets(_ contentInsets : UIEdgeInsets) -> BRCBoxInput {
+    func contentInsets(_ contentInsets : UIEdgeInsets) -> some View {
         return updateParams { params in
             params.contentInsets = contentInsets;
         }
     }
 
     /// 是否自适应输入框大小来填满整个视图 / Whether to auto-fill the input box container
-    func autoFillBoxContainer(_ isAutoFill : Bool) -> BRCBoxInput {
+    func autoFillBoxContainer(_ isAutoFill : Bool) -> some View {
         return updateParams { params in
             params.autoFillBoxContainer = isAutoFill;
         }
     }
 
     /// Set the caret tint color / 光标的颜色
-    func caretTintColor(_ color : UIColor) -> BRCBoxInput {
+    func caretTintColor(_ color : UIColor) -> some View {
         return updateParams { params in
             params.caretTintColor = color
         }
     }
 
     /// Set the callback for when the input box is clicked / 点击输入框的回调
-    func onClickInputViewBlock(_ block : @escaping (() -> Void)) -> BRCBoxInput {
+    func onClickInputViewBlock(_ block : @escaping (() -> Void)) -> some View {
         return updateParams { params in
             params.onClickInputViewBlock = block;
         }
     }
 
     /// Set the alignment of the input box / 输入框的对齐样式
-    func alignment(_ alignment : BRCBoxAlignment) -> BRCBoxInput {
+    func alignment(_ alignment : BRCBoxAlignment) -> some View {
         return updateParams { params in
             params.alignment = alignment;
         }
     }
 
     /// Set the placeholder of the input box / 输入框的占位符
-    func placeHolder(_ placeHolder : String) -> BRCBoxInput {
+    func placeHolder(_ placeHolder : String) -> some View {
         return updateParams { params in
             params.placeHolder = placeHolder;
         }
     }
 
     /// Whether to automatically dismiss the keyboard when input is finished / 是否在完成输入的时候自动关闭键盘
-    func autoDismissKeyBoardWhenFinishInput(_ isAuto : Bool) -> BRCBoxInput {
+    func autoDismissKeyBoardWhenFinishInput(_ isAuto : Bool) -> some View {
         return updateParams { params in
             params.autoDismissKeyBoardWhenFinishInput = isAuto;
         }
     }
 
     /// Whether to enable secure text entry / 是否加密输入
-    func secureTextEntry(_ secureTextEntry : Bool) -> BRCBoxInput {
+    func secureTextEntry(_ secureTextEntry : Bool) -> some View {
         return updateParams { params in
             params.secureTextEntry = secureTextEntry;
         }
     }
 
     /// Set the duration of the secure text entry transition / 加密输入的动画过渡时长
-    func secureTransitionDuration(_ duration : CGFloat) -> BRCBoxInput {
+    func secureTransitionDuration(_ duration : CGFloat) -> some View {
         return updateParams { params in
             params.secureTransitionDuration = duration;
         }
     }
 
     /// Set the delay duration for displaying the secure view / 加密视图显示的延后时长
-    func secureDelayDuration(_ duration : CGFloat) -> BRCBoxInput {
+    func secureDelayDuration(_ duration : CGFloat) -> some View {
         return updateParams { params in
             params.secureDelayDuration = duration;
         }
     }
 
     /// Set the keyboard type for the input view / 输入视图的键盘样式
-    func keyboardType(_ type : UIKeyboardType) -> BRCBoxInput {
+    func keyboardType(_ type : UIKeyboardType) -> some View {
         return updateParams { params in
             params.keyboardType = type;
         }
     }
 
     /// Set the content type for the input view / 输入视图的内容样式
-    func textContentType(_ type : UITextContentType) -> BRCBoxInput {
+    func textContentType(_ type : UITextContentType) -> some View {
         return updateParams { params in
             params.textContentType = type;
         }
     }
 
     /// Set the blink duration of the caret animation / 光标的渐显的动画时长
-    func blinkDuration(_ duration : CGFloat) -> BRCBoxInput {
+    func blinkDuration(_ duration : CGFloat) -> some View {
         return updateParams { params in
             params.blinkDuration = duration;
         }
     }
 
     /// Set the maximum opacity for the caret animation / 光标渐显动画最大透明度
-    func caretMaxOpacity(_ opacity : CGFloat) -> BRCBoxInput {
+    func caretMaxOpacity(_ opacity : CGFloat) -> some View {
         return updateParams { params in
             params.caretMaxOpacity = opacity;
         }
     }
 
     /// Set the minimum opacity for the caret animation / 光标渐显动画最小透明度
-    func caretMinOpacity(_ opacity : CGFloat) -> BRCBoxInput {
+    func caretMinOpacity(_ opacity : CGFloat) -> some View {
         return updateParams { params in
             params.caretMinOpacity = opacity;
         }
     }
 
     /// Set the width of the caret / 光标宽度
-    func caretWidth(_ width : CGFloat) -> BRCBoxInput {
+    func caretWidth(_ width : CGFloat) -> some View {
         return updateParams { params in
             params.caretWidth = width;
         }
     }
 
     /// Set the height of the caret / 光标高度
-    func caretHeight(_ height : CGFloat) -> BRCBoxInput {
+    func caretHeight(_ height : CGFloat) -> some View {
         return updateParams { params in
             params.caretHeight = height;
         }
     }
 
     /// Set the actions that `UIMenuController` can respond to / `UIMenuController` 可响应的操作
-    func menuActions(_ actions : [BRCBoxMenuActionType]) -> BRCBoxInput {
+    func menuActions(_ actions : [BRCBoxMenuActionType]) -> some View {
         return updateParams { params in
             params.menuActions = actions.map({ actionType in
                 return NSNumber.init(integerLiteral: actionType.rawValue)
@@ -418,63 +418,63 @@ public extension BRCBoxInput {
     }
 
     /// Set the scroll position to focus on the input box / 是否点击 `Return` 关闭键盘
-    func isDismissKeyBoardWhenClickReturn(_ isDismiss : Bool) -> BRCBoxInput {
+    func isDismissKeyBoardWhenClickReturn(_ isDismiss : Bool) -> some View {
         return updateParams { params in
             params.isDismissKeyBoardWhenClickReturn = isDismiss;
         }
     }
 
     /// Set the scroll position to focus on the input box / 滑动到聚焦输入框的位置
-    func focusScrollPosition(_ position : BRCBoxFocusScrollPosition) -> BRCBoxInput {
+    func focusScrollPosition(_ position : BRCBoxFocusScrollPosition) -> some View {
         return updateParams { params in
             params.focusScrollPosition = position;
         }
     }
 
     /// Set the `Return` key style for the input view / 输入视图键盘的 `Return` 样式
-    func returnKeyType(_ keyType : UIReturnKeyType) -> BRCBoxInput {
+    func returnKeyType(_ keyType : UIReturnKeyType) -> some View {
         return updateParams { params in
             params.returnKeyType = keyType;
         }
     }
 
     /// Set the callback for when an input box is about to be displayed / 即将展示某个输入框
-    func willDisplayBox(_ block : @escaping (Int) -> ()) -> BRCBoxInput {
+    func willDisplayBox(_ block : @escaping (Int) -> ()) -> some View {
         return updateParams { params in
             params.willDisplayBoxBlock = block;
         }
     }
 
     /// Set the callback for when an input box has finished displaying / 即将结束展示某个输入框
-    func didEndDisplayBox(_ block : @escaping (Int) -> ()) -> BRCBoxInput {
+    func didEndDisplayBox(_ block : @escaping (Int) -> ()) -> some View {
         return updateParams { params in
             params.didEndDisplayBoxBlock = block;
         }
     }
 
     /// Set the callback for when an input box is selected / 选中某个输入框
-    func didSelectBox(_ block : @escaping (Int) -> ()) -> BRCBoxInput {
+    func didSelectBox(_ block : @escaping (Int) -> ()) -> some View {
         return updateParams { params in
             params.didSelectBoxBlock = block;
         }
     }
 
     /// Set the callback for when an input box is deselected / 取消选中某个输入框
-    func didUnSelectBox(_ block : @escaping (Int) -> ()) -> BRCBoxInput {
+    func didUnSelectBox(_ block : @escaping (Int) -> ()) -> some View {
         return updateParams { params in
             params.didUnSelectBoxBlock = block;
         }
     }
 
     /// Set the callback for when an input box is about to be selected / 即将选中某个输入框
-    func willSelectBox(_ block : @escaping (Int) -> ()) -> BRCBoxInput {
+    func willSelectBox(_ block : @escaping (Int) -> ()) -> some View {
         return updateParams { params in
             params.willSelectBoxBlock = block;
         }
     }
 
     /// Set the callback for when an input box is about to be deselected / 即将取消选中某个输入框
-    func willUnSelectBox(_ block : @escaping (Int) -> ()) -> BRCBoxInput {
+    func willUnSelectBox(_ block : @escaping (Int) -> ()) -> some View {
         return updateParams { params in
             params.willUnSelectBoxBlock = block;
         }
@@ -488,35 +488,35 @@ public extension BRCBoxInput {
     }
 
     /// Set the callback for copying text from the pasteboard / 从粘贴板复制某段文本
-    func didCopyTextFromPasteboard(_ block : @escaping (String) -> ()) -> BRCBoxInput {
+    func didCopyTextFromPasteboard(_ block : @escaping (String) -> ()) -> some View {
         return updateParams { params in
             params.didCopyTextFromPasteboard = block;
         }
     }
 
     /// Set the callback for pasting text from the pasteboard/ 从粘贴板粘贴某段文本
-    func didPasteTextFromPasteboard(_ block : @escaping (String) -> ()) -> BRCBoxInput {
+    func didPasteTextFromPasteboard(_ block : @escaping (String) -> ()) -> some View {
         return updateParams { params in
             params.didPasteTextFromPasteboard = block;
         }
     }
 
     /// Set the callback for cutting text from the pasteboard / 从粘贴板剪切某段文本
-    func didCutTextFromPasteboard(_ block : @escaping (String) -> ()) -> BRCBoxInput {
+    func didCutTextFromPasteboard(_ block : @escaping (String) -> ()) -> some View {
         return updateParams { params in
             params.didCutTextFromPasteboard = block;
         }
     }
 
     /// Set the callback for deleting text from the pasteboard / 从粘贴板删除某段文本
-    func didDeleteTextFromPasteboard(_ block : @escaping (String) -> ()) -> BRCBoxInput {
+    func didDeleteTextFromPasteboard(_ block : @escaping (String) -> ()) -> some View {
         return updateParams { params in
             params.didDeleteTextFromPasteboard = block;
         }
     }
     
     /// Regular input restrictions / 输入的正则限制
-    func inputPattern(_ string : String) -> BRCBoxInput {
+    func inputPattern(_ string : String) -> some View {
         return updateParams { params in
             params.inputPattern = string;
         }

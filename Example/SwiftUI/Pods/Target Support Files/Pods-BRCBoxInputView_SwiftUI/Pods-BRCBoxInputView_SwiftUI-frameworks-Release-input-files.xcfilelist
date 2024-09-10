@@ -1,5 +1,6 @@
 ${PODS_ROOT}/Target Support Files/Pods-BRCBoxInputView_SwiftUI/Pods-BRCBoxInputView_SwiftUI-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/BRCBoxInputView/BRCBoxInputView.framework
 ${BUILT_PRODUCTS_DIR}/BRCFastTest/BRCFastTest.framework
+${BUILT_PRODUCTS_DIR}/BRCFlexTagBox/BRCFlexTagBox.framework
 ${BUILT_PRODUCTS_DIR}/BRCPopUp/BRCPopUp.framework
 ${BUILT_PRODUCTS_DIR}/FLEX/FLEX.framework

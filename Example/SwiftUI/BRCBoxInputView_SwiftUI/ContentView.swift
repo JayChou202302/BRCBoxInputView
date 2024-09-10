@@ -8,6 +8,7 @@
 import SwiftUI
 import BRCFastTest
 import BRCBoxInputView
+import BRCFlexTagBox
 
 extension String : Identifiable{
     public var id : Int{
@@ -48,6 +49,7 @@ struct ContentView : View {
     @State var caretWidth : CGFloat = 2;
     @State var caretHeight : CGFloat = 30;
     @State var keyBoardType : String = "普通键盘";
+    @State var boxContainerHeight : CGFloat = 0;
     
     func getKetBoardTypeWithStr(_ string : String) -> UIKeyboardType {
         if (keyBoardType == "普通键盘") {
@@ -58,20 +60,18 @@ struct ContentView : View {
     
     var body: some View {
         VStack {
-            HStack {
-               TagView(.brtest_red(),"Objective-C")
-               TagView(.brtest_orange(),"Swift")
-               TagView(.brtest_green(),"SwiftUI")
-                TagView(.brtest_green(),"UITextInput")
-               Spacer()
-            }
-            HStack {
-                TagView(.brtest_cyan(),"API强大")
-                TagView(.brtest_deepPink(),"支持高度自定义")
-               TagView(.brtest_gold(),"支持 iOS 13.0 以上")
-               Spacer()
-            }
-            
+            BRCFlexTagBox(testTags:[
+                "Objective-C",
+                "Swift",
+                "SwiftUI",
+                "UITextInput",
+                "API强大",
+                "支持高度自定义",
+                "支持 iOS 13.0 以上"
+            ], contentHeight: $boxContainerHeight)
+            .tagBackgroundColor(.brtest_contentWhite)
+            .frame(height: boxContainerHeight)
+
             Toggle("开启加密输入", isOn: $isSecureTextEntry)
                 .font(.system(size: 16.0,weight: .bold))
             Toggle("开启编辑", isOn: $isBoxInputFocus)
@@ -157,7 +157,7 @@ struct ContentView : View {
             
             Spacer()
         }
-        .padding()
+        .padding(.horizontal)
     }
 }
 
