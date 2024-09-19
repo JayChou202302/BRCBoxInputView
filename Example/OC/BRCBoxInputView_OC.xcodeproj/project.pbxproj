@@ -89,6 +89,8 @@
 /* Begin PBXFileReference section */
 		01F99DB96FF28FE5D37FA41D /* Pods_BRCBoxInputView_OC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BRCBoxInputView_OC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71A9E8CC4CFE5FD89C7AADE6 /* Pods-BRCBoxInputView_OC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BRCBoxInputView_OC.debug.xcconfig"; path = "Target Support Files/Pods-BRCBoxInputView_OC/Pods-BRCBoxInputView_OC.debug.xcconfig"; sourceTree = "<group>"; };
+		7A456D6B2C914440005886EC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		7A456D6C2C914440005886EC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		7A555B582C674C0B000A7AA7 /* BRCLineBoxView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRCLineBoxView.h; sourceTree = "<group>"; };
 		7A555B592C674C0B000A7AA7 /* BRCLineBoxView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRCLineBoxView.m; sourceTree = "<group>"; };
 		7A555B5B2C6750F6000A7AA7 /* BRCGiftBoxView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRCGiftBoxView.h; sourceTree = "<group>"; };
@@ -97,8 +99,6 @@
 		7A9BB4032C64A17700BA6A7A /* BRCRootTabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRCRootTabBarViewController.m; sourceTree = "<group>"; };
 		7A9BB4052C64A2E700BA6A7A /* BRCBoxInputExampleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRCBoxInputExampleViewController.h; sourceTree = "<group>"; };
 		7A9BB4062C64A2E700BA6A7A /* BRCBoxInputExampleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRCBoxInputExampleViewController.m; sourceTree = "<group>"; };
-		7AAA6C502C8062EF00CFC8E4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
-		7AAA6C512C8062EF00CFC8E4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		7AB7250A2C6087180042184A /* BRCBoxInputView_OC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BRCBoxInputView_OC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AB7250D2C6087180042184A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7AB7250E2C6087180042184A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -622,7 +622,7 @@
 			};
 			buildConfigurationList = 7AB725052C6087180042184A /* Build configuration list for PBXProject "BRCBoxInputView_OC" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = "zh-Hans";
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -782,7 +782,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				7AB725172C6087180042184A /* Base */,
-				7AAA6C512C8062EF00CFC8E4 /* zh-Hans */,
+				7A456D6B2C914440005886EC /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -791,7 +791,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				7AB7251C2C6087190042184A /* Base */,
-				7AAA6C502C8062EF00CFC8E4 /* zh-Hans */,
+				7A456D6C2C914440005886EC /* en */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

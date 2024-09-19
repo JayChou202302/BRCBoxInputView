@@ -5,36 +5,34 @@
   Created by sunzhixiong on 2024/8/7.
   
 */
-
-"key.main.tab.test.title" = "测试";
-"key.main.tab.test.example" = "样例";
+"key.main.tab.test.title" = "Test";
+"key.main.tab.test.example" = "Example";
 "key.component.tag.01" = "iOS";
 "key.component.tag.02" = "SwiftUI";
 "key.component.tag.03" = "Objective-c";
 "key.component.tag.04" = "UIKeyInput";
-"key.component.tag.05" = "高度自定义";
-"key.component.tag.06" = "简洁易用";
-"key.component.tag.07" = "功能强大";
-"key.component.description" = "一个高效易用的验证码输入组件";
-"key.component.functions.01" = "基于 UIKeyInput 协议";
-"key.component.functions.02" = "支持占位符、阴影等多种样式";
-"key.component.functions.03" = "支持自定义加密输入";
-"key.component.functions.04" = "支持复制、粘贴、删除、拷贝的功能";
-"key.paste.text.success" = "粘贴成功";
-"key.copy.text.success" = "复制成功";
-"key.delete.text.success" = "删除成功";
-"key.cut.text.success" = "剪切成功";
-"key.component.test.example" = "测试示例";
-"key.component.test.caret.height" = "光标的高度";
-"key.component.test.caret.width" = "光标的宽度";
-"key.component.test.caret.maxopacity" = "光标的最大透明度";
-"key.component.test.caret.minopacity" = "光标的最小透明度";
-"key.component.test.caret.blinkduration" = "光标的动画时间";
-"key.component.test.box.height" = "输入框的高度";
-"key.component.test.box.width" = "输入框的宽度";
-"key.component.test.box.space" = "输入框之间的间距";
-"key.component.test.box.inputlength" = "输入框的数量";
-"key.component.test.style.02" = "3.自定义样式2";
-"key.component.test.style.01" = "2.自定义样式1";
-"key.component.test.style.00" = "1.带占位符";
-
+"key.component.tag.05" = "Highly customizable";
+"key.component.tag.06" = "Simple Math";
+"key.component.tag.07" = "Powerful";
+"key.component.description" = "An efficient and easy-to-use verification code input component";
+"key.component.functions.01" = "Based on UIKeyInput protocol";
+"key.component.functions.02" = "Supports multiple styles such as placeholders and shadows";
+"key.component.functions.03" = "Support custom encrypted input";
+"key.component.functions.04" = "Supports copy, paste, delete, and copy functions";
+"key.paste.text.success" = "Paste successful";
+"key.copy.text.success" = "Copy successfully";
+"key.delete.text.success" = "Delete successfully";
+"key.cut.text.success" = "Cut successfully";
+"key.component.test.example" = "Test example";
+"key.component.test.caret.height" = "Cursor height";
+"key.component.test.caret.width" = "Cursor width";
+"key.component.test.caret.maxopacity" = "Maximum transparency of the cursor";
+"key.component.test.caret.minopacity" = "Minimum transparency of the cursor";
+"key.component.test.caret.blinkduration" = "Cursor animation time";
+"key.component.test.box.height" = "Height of the input box";
+"key.component.test.box.width" = "Width of the input box";
+"key.component.test.box.space" = "Spacing between input boxes";
+"key.component.test.box.inputlength" = "Number of input boxes";
+"key.component.test.style.02" = "3. Custom style 2";
+"key.component.test.style.01" = "2. Custom style 1";
+"key.component.test.style.00" = "1.With placeholder";

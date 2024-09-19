@@ -25,6 +25,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy, nullable)  UIColor         *boxShadowColor;
 @property (nonatomic, copy, nullable)  UIColor         *boxSecretImageColor;
 @property (nonatomic, copy, nullable)  UIImage         *boxSecretImage;
+@property (nonatomic, copy, nullable)  UIColor         *textColor;
+@property (nonatomic, copy, nullable)  UIColor         *placeHolderColor;
+@property (nonatomic, copy, nullable)  UIFont          *textFont;
+@property (nonatomic, copy, nullable)  UIFont          *placeHolderFont;
 @property (nonatomic, copy, nullable)  NSDictionary<NSAttributedStringKey,id>    *textAttributedDict;
 @property (nonatomic, copy, nullable)  NSDictionary<NSAttributedStringKey,id>    *placeHolderAttributedDict;
 
@@ -66,6 +70,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UIColor                       *caretTintColor;
 @property (nonatomic, strong) BRCBoxStyle                   *boxStyle;
 @property (nonatomic, strong) BRCBoxStyle                   *selectedBoxStyle;
+
+
+/**
+ * InputView Is it filled / 输入框是否被填满
+ */
+@property (nonatomic, assign, readonly) BOOL isFill;
+
+/**
+ * CallBack For Finsih Input / 完成输入时的事件回调
+ */
+@property (nonatomic, copy, nullable) void(^onFinishInput)(NSString *text);
 
 /**
  * The MenuActions For UIMenuController / `UIMenuController` 可操作类型

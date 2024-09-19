@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'BRCBoxInputView'
-  s.version          = '1.2.1'
+  s.version          = '1.3.0'
   s.summary          = 'BRCBoxInputView is a customizable input view that supports various text input customizations and conforms to the UITextInput protocol.'
   
   s.description      = "BRCBoxInputView is a customizable input view that conforms to the UITextInput protocol.It offers various text input customizations, including keyboard settings, caret styles,box alignment, and input length constraints. The view supports menu actions like copy,paste, cut, and delete, and includes features for handling custom input events and first responder status."

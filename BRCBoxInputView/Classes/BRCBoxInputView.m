@@ -129,14 +129,12 @@ do { \
     style.boxShadowOffset = CGSizeZero;
     style.boxBackgroundColor = [UIColor clearColor];
     style.boxShadowColor = [UIColor clearColor];
-    style.textAttributedDict = @{
-        NSFontAttributeName : [UIFont boldSystemFontOfSize:14.0],
-        NSForegroundColorAttributeName : [UIColor blackColor]
-    };
-    style.placeHolderAttributedDict = @{
-        NSFontAttributeName : [UIFont systemFontOfSize:14.0],
-        NSForegroundColorAttributeName : [UIColor systemGrayColor]
-    };
+    style.textFont = [UIFont boldSystemFontOfSize:14.0];
+    style.textColor = [UIColor blackColor];
+    style.textFont = [UIFont systemFontOfSize:14.0];
+    style.placeHolderColor = [UIColor systemGrayColor];
+    style.textAttributedDict = @{};
+    style.placeHolderAttributedDict = @{};
     style.boxSecretImage = [UIImage systemImageNamed:@"lock.fill"];
     style.boxSecretImageColor = [UIColor blackColor];
     style.boxSecretImageSize = CGSizeZero;
@@ -160,6 +158,10 @@ do { \
         BRCBoxStyle *otherStyle = (BRCBoxStyle *)other;
         return CGSizeEqualToSize(otherStyle.boxSize, self.boxSize) && CGSizeEqualToSize(otherStyle.boxShadowOffset, self.boxShadowOffset) && CGSizeEqualToSize(otherStyle.boxSecretImageSize, self.boxSecretImageSize) && otherStyle.boxCornerRadius == self.boxCornerRadius && otherStyle.boxBorderWidth == self.boxBorderWidth &&
             otherStyle.boxShadowRadius == self.boxShadowRadius &&
+            [self safeEqual:self.textColor obj2:otherStyle.textColor] &&
+            [self safeEqual:self.textFont obj2:otherStyle.textFont] &&
+            [self safeEqual:self.placeHolderFont obj2:otherStyle.placeHolderFont] &&
+            [self safeEqual:self.placeHolderColor obj2:otherStyle.placeHolderColor] &&
             [self safeEqual:self.textAttributedDict obj2:otherStyle.textAttributedDict] &&
             [self safeEqual:self.placeHolderAttributedDict obj2:otherStyle.placeHolderAttributedDict] &&
             [self safeEqual:self.boxBackgroundColor obj2:otherStyle.boxBackgroundColor] &&
@@ -199,8 +201,6 @@ do { \
 - (void)setBoxText:(NSString *)text { [self.mainView setBoxText:text]; }
 - (void)setBoxPlaceHolder:(NSString *)placeHolder { [self.mainView setBoxPlaceHolder:placeHolder]; }
 - (void)setBoxStyle:(BRCBoxStyle *)boxStyle { [self.mainView setBoxStyle:boxStyle]; }
-//
-
 
 @end
 
@@ -253,13 +253,13 @@ do { \
 
 - (void)setBoxText:(NSString *)text {
     _isPlaceHolderText = NO;
-    _boxLabel.attributedText = [self getAttributedStr:text withAttributedDict:self.boxStyle.textAttributedDict];
+    [self updateLabelTextWithText:text];
     [self updateSecureTextEntryIconState];
 }
 
 - (void)setBoxPlaceHolder:(NSString *)placeHolder {
     _isPlaceHolderText = YES;
-    _boxLabel.attributedText = [self getAttributedStr:placeHolder withAttributedDict:self.boxStyle.placeHolderAttributedDict];
+    [self updateLabelTextWithText:placeHolder];
     [self updateSecureTextEntryIconState];
 }
 
@@ -284,8 +284,7 @@ do { \
     self.layer.shadowOffset = boxStyle.boxShadowOffset;
     self.secretImageView.image = boxStyle.boxSecretImage;
     self.secretImageView.tintColor = boxStyle.boxSecretImageColor;
-    NSAttributedString *attributedText =[self getAttributedStr:self.boxLabel.attributedText.string withAttributedDict: self.isPlaceHolderText ? self.boxStyle.placeHolderAttributedDict : self.boxStyle.textAttributedDict];
-    self.boxLabel.attributedText = attributedText;
+    [self updateLabelTextWithText:self.boxLabel.attributedText.string];
     if (CGSizeEqualToSize(boxStyle.boxSecretImageSize, self.secretImageView.frame.size)) {
         [NSLayoutConstraint deactivateConstraints:@[self.imageHeightConstraint,self.imageWidthConstraint]];
         if (CGSizeEqualToSize(boxStyle.boxSecretImageSize, CGSizeZero)) {
@@ -323,6 +322,17 @@ do { \
 - (void)hideSecureTextEntryIcon{
     self.boxLabel.alpha = 1;
     self.secretImageView.alpha = 0;
+}
+
+- (void)updateLabelTextWithText:(NSString *)text{
+    NSDictionary *attributedDict = self.isPlaceHolderText ? self.boxStyle.placeHolderAttributedDict : self.boxStyle.textAttributedDict;
+    if (attributedDict.allKeys.count <= 0) {
+        attributedDict = @{
+            NSFontAttributeName : self.boxStyle.textFont ?: [UIFont systemFontOfSize:13.0],
+            NSForegroundColorAttributeName : self.boxStyle.textColor ?: [UIColor blackColor]
+        };
+    }
+    _boxLabel.attributedText = [self getAttributedStr:text withAttributedDict:attributedDict];
 }
 
 #pragma mark - getter
@@ -446,6 +456,7 @@ BRCBoxFlowLayoutDelegate
 }
 
 - (void)commonInit {
+    _onFinishInput = nil;
     _focusScrollPosition = BRCBoxFocusScrollPositionCenter;
     _boxViewClass = [BRCBoxView class];
     _menuDirection = UIMenuControllerArrowDown;
@@ -593,6 +604,8 @@ BRCBoxFlowLayoutDelegate
     if (self.inputText.length >= self.inputMaxLength) {
         self.inputText = [self.inputText substringToIndex:self.inputMaxLength];
         if (self.autoDismissKeyBoardWhenFinishInput) [self resignFirstResponder];
+        [self sendViewDelegetEventWithSEL:@selector(didFinishInput:)];
+        if (self.onFinishInput) { self.onFinishInput(self.text); }
     }
     for (NSInteger i = 0; i < self.inputMaxLength; i ++) {
         [self updateBoxTextWithIndex:i];
@@ -652,7 +665,7 @@ BRCBoxFlowLayoutDelegate
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell<BRCBoxViewProtocol> *cell;
-    if ([self isDelegateRespondsToSelector:@selector(boxWithIndex:inInputView:) delegate:self.delegate]) {
+    if ([self isDelegateRespondsToSelector:@selector(boxWithIndex:inInputView:)]) {
         UIView<BRCBoxViewProtocol> *contentView = (UIView<BRCBoxViewProtocol> *)[self.delegate boxWithIndex:indexPath.item inInputView:self];
         if ([contentView isKindOfClass:[UIView class]] ) {
             cell = [collectionView dequeueReusableCellWithReuseIdentifier:kBRCCustomBoxCollectionViewCellID forIndexPath:indexPath];
@@ -688,7 +701,7 @@ BRCBoxFlowLayoutDelegate
 }
 
 - (void)insertText:(NSString *)text {
-    if ([text isEqualToString:@"\n"] && [self isDelegateRespondsToSelector:@selector(boxInputViewShouldReturn:) delegate:self.delegate] && [self.delegate boxInputViewShouldReturn:self]) {
+    if ([text isEqualToString:@"\n"] && [self isDelegateRespondsToSelector:@selector(boxInputViewShouldReturn:)] && [self.delegate boxInputViewShouldReturn:self]) {
         [self resignFirstResponder];
     }
     if (![text isEqualToString:@""] && ![self isVaildString:text]) return;
@@ -711,7 +724,7 @@ BRCBoxFlowLayoutDelegate
 
 - (BOOL)becomeFirstResponder {
     BOOL becomeFirstResponder = [super becomeFirstResponder];
-    [self sendViewDelegetEventWithSEL:@selector(didBecomeFirstResponderWithView:) withDelegate:self.delegate];
+    [self sendViewDelegetEventWithSEL:@selector(didBecomeFirstResponderWithView:)];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.05 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self updateBoxSelectStateWithIndex:self.currentSelectIndex isSelect:YES];
         [self moveCaretViewToCurrentBoxView];
@@ -721,7 +734,7 @@ BRCBoxFlowLayoutDelegate
 
 - (BOOL)resignFirstResponder {
     BOOL resignFirstResponder = [super resignFirstResponder];
-    [self sendViewDelegetEventWithSEL:@selector(didResignFirstResponderWithView:) withDelegate:self.delegate];
+    [self sendViewDelegetEventWithSEL:@selector(didResignFirstResponderWithView:)];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.05 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self updateBoxSelectStateWithIndex:self.currentSelectIndex isSelect:NO];
         [self hideCaretView];
@@ -783,11 +796,11 @@ BRCBoxFlowLayoutDelegate
 #pragma mark - util
 
 - (void)excuteUpdateText:(void (^)(void))updateBlock {
-    [self sendViewDelegetEventWithSEL:@selector(boxTextWillChange:) withDelegate:self.delegate];
+    [self sendViewDelegetEventWithSEL:@selector(boxTextWillChange:)];
     if (updateBlock) updateBlock();
     [self singleExecute:^{
         [self updateInputContent];
-        [self sendViewDelegetEventWithSEL:@selector(boxTextDidChange:) withDelegate:self.delegate];
+        [self sendViewDelegetEventWithSEL:@selector(boxTextDidChange:)];
     }];
 }
 
@@ -826,25 +839,25 @@ BRCBoxFlowLayoutDelegate
     return blinkAnimation;
 }
 
-- (BOOL)isDelegateRespondsToSelector:(SEL)selector delegate:(id)delegate {
-    return selector != NULL && delegate &&
-    [delegate respondsToSelector:selector];
+- (BOOL)isDelegateRespondsToSelector:(SEL)selector {
+    return selector != NULL && self.delegate &&
+    [self.delegate respondsToSelector:selector];
 }
 
-- (void)sendViewDelegetEventWithSEL:(SEL)selector withDelegate:(id)delegate {
-    if ([self isDelegateRespondsToSelector:selector delegate:delegate]) {
-        NoWarningPerformSelector([delegate performSelector:selector withObject:self]);
+- (void)sendViewDelegetEventWithSEL:(SEL)selector {
+    if ([self isDelegateRespondsToSelector:selector]) {
+        NoWarningPerformSelector([self.delegate performSelector:selector withObject:self]);
     }
 }
 
 - (void)sendMenuDelegateEventWithSEL:(SEL)selector withText:(NSString *)text{
-    if ([self isDelegateRespondsToSelector:selector delegate:self.delegate]) {
+    if ([self isDelegateRespondsToSelector:selector]) {
         NoWarningPerformSelector([self.delegate performSelector:selector withObject:text withObject:self]);
     }
 }
 
 - (void)sendBoxActionDelegateEventWithSEL:(SEL)selector withIndex:(NSInteger)index {
-    if ([self isDelegateRespondsToSelector:selector delegate:self.delegate]) {
+    if ([self isDelegateRespondsToSelector:selector]) {
         void (*objcMsgSend)(id, SEL, id, NSInteger, id) = (void *)objc_msgSend;
         objcMsgSend(self.delegate, selector, [self boxViewWithIndex:index], index, self);
     }
@@ -896,7 +909,7 @@ BRCBoxFlowLayoutDelegate
 
 - (BRCBoxStyle *)boxStyleForIndex:(NSInteger)index {
     BRCBoxStyle *style = (index == self.currentSelectIndex) && self.isFirstResponder ? self.selectedBoxStyle : self.boxStyle;
-    if ([self isDelegateRespondsToSelector:@selector(boxStyleWithIndex:withBoxView:inInputView:) delegate:self.delegate]) {
+    if ([self isDelegateRespondsToSelector:@selector(boxStyleWithIndex:withBoxView:inInputView:)]) {
         BRCBoxStyle *delegateStyle = [self.delegate boxStyleWithIndex:index withBoxView:(BRCBoxView *)[self boxViewWithIndex:index] inInputView:self];
         if ([delegateStyle isKindOfClass:[BRCBoxStyle class]]) style = delegateStyle;
     }
@@ -905,7 +918,7 @@ BRCBoxFlowLayoutDelegate
 
 - (CGSize)boxSizeForIndex:(NSInteger)index {
     CGSize boxSize = self.boxSize;
-    if ([self isDelegateRespondsToSelector:@selector(boxStyleWithIndex:withBoxView:inInputView:) delegate:self.delegate]) {
+    if ([self isDelegateRespondsToSelector:@selector(boxStyleWithIndex:withBoxView:inInputView:)]) {
         boxSize = [self boxStyleForIndex:index].boxSize;
     }
     CGFloat autoFillContainerBoxWidth = self.autoFillContainerBoxWidth;
@@ -919,6 +932,11 @@ BRCBoxFlowLayoutDelegate
         width += [self boxSizeForIndex:i].width + self.boxSpace;
     }
     return width;
+}
+
+- (BOOL)isFill {
+    if (![self.text isKindOfClass:[NSString class]]) return NO;
+    return self.text.length == self.inputMaxLength;
 }
 
 - (BOOL)isMenuActionsVaild {

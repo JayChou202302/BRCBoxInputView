@@ -119,6 +119,12 @@ typedef NS_ENUM(NSUInteger, BRCBoxFocusScrollPosition) {
 - (void)boxTextWillChange:(BRCBoxInputView *)inputView;
 - (void)boxTextDidChange:(BRCBoxInputView *)inputView;
 
+/**
+ * 输入框完成输入事件回调
+ * Callback for finish input
+ */
+- (void)didFinishInput:(BRCBoxInputView *)inputView;
+
 @end
 
 #endif /* BRCBoxInputViewConst_h */

@@ -4,7 +4,7 @@
 target 'BRCBoxInputView_SwiftUI' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!	
-  pod 'BRCBoxInputView'
+  pod 'BRCBoxInputView', :path => '../../../BRCBoxInputView'
   pod 'BRCPopUp'
   pod 'BRCFastTest','~> 0.2.3'
   # Pods for BRCBoxInputView_SwiftUI
