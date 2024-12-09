@@ -91,7 +91,7 @@ do { \
     [self.cache removeAllObjects];
     self.contentWidth = 0;
     if ([self.collectionView numberOfSections] == 0) return;
-    CGFloat offsetX = 0;
+    CGFloat offsetX = self.minimumInteritemSpacing / 2;
     for (NSInteger item = 0; item < [self.collectionView numberOfItemsInSection:0]; item++) {
         NSIndexPath *indexPath = [NSIndexPath indexPathForItem:item inSection:0];
         if ([self.delegate respondsToSelector:@selector(collectionView:layout:sizeForItemAtIndexPath:)]) {
@@ -122,16 +122,15 @@ do { \
 + (instancetype)defaultStyle {
     BRCBoxStyle *style = [BRCBoxStyle new];
     style.boxSize = CGSizeMake(60, 60);
-    style.boxCornerRadius = 4;
-    style.boxBorderWidth = 1.0;
-    style.boxBorderColor = [UIColor blackColor];
+    style.boxCornerRadius = 8;
+    style.boxBorderWidth = 0;
+    style.boxBorderColor = [UIColor clearColor];
     style.boxShadowRadius = 0;
     style.boxShadowOffset = CGSizeZero;
-    style.boxBackgroundColor = [UIColor clearColor];
+    style.boxBackgroundColor = [UIColor whiteColor];
     style.boxShadowColor = [UIColor clearColor];
-    style.textFont = [UIFont boldSystemFontOfSize:14.0];
+    style.textFont =  [UIFont boldSystemFontOfSize:18.0];
     style.textColor = [UIColor blackColor];
-    style.textFont = [UIFont systemFontOfSize:14.0];
     style.placeHolderColor = [UIColor systemGrayColor];
     style.textAttributedDict = @{};
     style.placeHolderAttributedDict = @{};
@@ -143,7 +142,8 @@ do { \
 
 + (instancetype)defaultSelectedStyle {
     BRCBoxStyle *style = [BRCBoxStyle defaultStyle];
-    style.boxBorderColor = [UIColor systemRedColor];
+    style.boxBackgroundColor = [UIColor purpleColor];
+    style.textColor = [UIColor whiteColor];
     return style;
 }
 
@@ -172,6 +172,31 @@ do { \
     }
     return NO;
 }
+
+- (id)copyWithZone:(NSZone *)zone {
+    BRCBoxStyle *copy = [[[self class] allocWithZone:zone] init];
+    if (copy) {
+        copy.boxSize = self.boxSize;
+        copy.boxCornerRadius = self.boxCornerRadius;
+        copy.boxBorderWidth = self.boxBorderWidth;
+        copy.boxShadowRadius = self.boxShadowRadius;
+        copy.boxShadowOffset = self.boxShadowOffset;
+        copy.boxSecretImageSize = self.boxSecretImageSize;
+        copy.boxBackgroundColor = [self.boxBackgroundColor copyWithZone:zone];
+        copy.boxBorderColor = [self.boxBorderColor copyWithZone:zone];
+        copy.boxShadowColor = [self.boxShadowColor copyWithZone:zone];
+        copy.boxSecretImageColor = [self.boxSecretImageColor copyWithZone:zone];
+        copy.boxSecretImage = [self.boxSecretImage copy];
+        copy.textColor = [self.textColor copyWithZone:zone];
+        copy.placeHolderColor = [self.placeHolderColor copyWithZone:zone];
+        copy.textFont = [self.textFont copyWithZone:zone];
+        copy.placeHolderFont = [self.placeHolderFont copyWithZone:zone];
+        copy.textAttributedDict = [[NSDictionary allocWithZone:zone] initWithDictionary:self.textAttributedDict copyItems:YES];
+        copy.placeHolderAttributedDict = [[NSDictionary allocWithZone:zone] initWithDictionary:self.placeHolderAttributedDict copyItems:YES];
+    }
+    return copy;
+}
+
 
 @end
 
@@ -446,7 +471,7 @@ BRCBoxFlowLayoutDelegate
 
 - (void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self forKeyPath:UIApplicationWillEnterForegroundNotification];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)setUpViews {
@@ -469,8 +494,9 @@ BRCBoxFlowLayoutDelegate
     _caretTintColor = [UIColor systemPinkColor];
     __weak __typeof__(self) weakSelf = self;
     _onClickInputViewBlock = ^{
-        [weakSelf hideMenu];
-        [weakSelf toggleFirstResponder];
+        __strong typeof(self) strongSelf = weakSelf;
+        [strongSelf hideMenu];
+        [strongSelf toggleFirstResponder];
     };
     _alignment = BRCBoxAlignmentCenter;
     _placeHolder = nil;
@@ -705,18 +731,22 @@ BRCBoxFlowLayoutDelegate
         [self resignFirstResponder];
     }
     if (![text isEqualToString:@""] && ![self isVaildString:text]) return;
+    __weak typeof(self) weakSelf = self;
     [self excuteUpdateText:^{
-        if ([self.inputText isKindOfClass:[NSString class]]) {
-            self.inputText = [self.inputText stringByAppendingString:text];
+        __strong typeof(self) strongSelf = weakSelf;
+        if ([strongSelf.inputText isKindOfClass:[NSString class]]) {
+            strongSelf.inputText = [strongSelf.inputText stringByAppendingString:text];
         } else {
-            self.inputText = text;
+            strongSelf.inputText = text;
         }
     }];
 }
 
 - (void)deleteBackward {
+    __weak typeof(self) weakSelf = self;
     [self excuteUpdateText:^{
-        if ([self hasText]) self.inputText = [self.inputText substringWithRange:NSMakeRange(0, self.inputText.length - 1)];
+        __strong typeof(self) strongSelf = weakSelf;
+        if ([strongSelf hasText]) strongSelf.inputText = [strongSelf.inputText substringWithRange:NSMakeRange(0, strongSelf.inputText.length - 1)];
     }];
 }
 
@@ -798,9 +828,11 @@ BRCBoxFlowLayoutDelegate
 - (void)excuteUpdateText:(void (^)(void))updateBlock {
     [self sendViewDelegetEventWithSEL:@selector(boxTextWillChange:)];
     if (updateBlock) updateBlock();
+    __weak typeof(self) weakSelf = self;
     [self singleExecute:^{
-        [self updateInputContent];
-        [self sendViewDelegetEventWithSEL:@selector(boxTextDidChange:)];
+        __strong typeof(self) strongSelf = weakSelf;
+        [strongSelf updateInputContent];
+        [strongSelf sendViewDelegetEventWithSEL:@selector(boxTextDidChange:)];
     }];
 }
 

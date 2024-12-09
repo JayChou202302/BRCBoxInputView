@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * The Style For Box / 输入框的样式
  */
-@interface BRCBoxStyle : NSObject
+@interface BRCBoxStyle : NSObject<NSCopying>
 
 @property (nonatomic, assign) CGSize          boxSize;
 @property (nonatomic, assign) CGFloat         boxCornerRadius;
