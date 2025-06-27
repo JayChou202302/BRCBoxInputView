@@ -1,0 +1,12 @@
+//
+//  BRCBoxInputView.modulemap
+//  BRCBoxInputView
+//
+//  Created by sunzhixiong on 2025/3/29.
+//
+
+module BRCBoxInputView {
+    header "BRCBoxInputView.h"
+
+    export *
+}

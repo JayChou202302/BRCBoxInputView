@@ -73,6 +73,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ * 自定义容器宽度
+ */
+@property (nonatomic, assign, readonly) CGFloat contentContainerWidth;
+
+/**
+ * 是否保证输入框始终为Square样式
+ */
+@property (nonatomic, assign) BOOL isBoxWHAlwaysEqual;
+
+
+/**
  * InputView Is it filled / 输入框是否被填满
  */
 @property (nonatomic, assign, readonly) BOOL isFill;

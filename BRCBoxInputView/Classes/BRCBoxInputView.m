@@ -913,6 +913,7 @@ BRCBoxFlowLayoutDelegate
 - (void)refreshCollectionViewLayout {
     CGFloat containerWidth = self.collectionViewContainerWidth;
     if (self.collectionView.contentSize.width == containerWidth) return;
+    [self.collectionView.collectionViewLayout invalidateLayout];
     [NSLayoutConstraint deactivateConstraints:self.activeConstraints];
     self.activeConstraints = [NSMutableArray array];
     [self.activeConstraints addObjectsFromArray:@[
@@ -955,7 +956,11 @@ BRCBoxFlowLayoutDelegate
     }
     CGFloat autoFillContainerBoxWidth = self.autoFillContainerBoxWidth;
     CGFloat width = (self.autoFillBoxContainer && autoFillContainerBoxWidth >= 0) ? self.autoFillContainerBoxWidth : boxSize.width;
-    return CGSizeMake(width, MIN(self.frame.size.height, boxSize.height));
+    return CGSizeMake(width, self.isBoxWHAlwaysEqual ?  width : MIN(self.frame.size.height, boxSize.height));
+}
+
+- (CGFloat)contentContainerWidth {
+    return self.collectionViewContainerWidth;
 }
 
 - (CGFloat)collectionViewContainerWidth {
@@ -987,10 +992,7 @@ BRCBoxFlowLayoutDelegate
 }
 
 - (CGFloat)autoFillContainerBoxWidth {
-    if (_autoFillContainerBoxWidth <= 0) {
-        _autoFillContainerBoxWidth = (self.frame.size.width - (self.inputMaxLength + 1) * self.boxSpace) / self.inputMaxLength;
-    }
-    return _autoFillContainerBoxWidth;
+    return (self.frame.size.width - (self.inputMaxLength + 1) * self.boxSpace) / self.inputMaxLength;
 }
 
 - (UICollectionViewCell<BRCBoxViewProtocol> *)boxViewWithIndex:(NSInteger)index{
